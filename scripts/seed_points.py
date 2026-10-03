@@ -14,6 +14,7 @@
    pharmacies, shops). Names and exact positions are ILLUSTRATIVE.
    All have is_demo=1. Ids: krk-0001 ... plus krk-demo for the stage sticker.
 """
+import argparse
 import json
 import re
 import sys
@@ -211,10 +212,23 @@ ON CONFLICT(id) DO UPDATE SET
 """  # created_at is kept from the first insert
 
 
-def main() -> int:
+def load_snapshot() -> dict | None:
+    if TOILETS_CACHE.exists():
+        print(f"Using the saved snapshot {TOILETS_CACHE.name} (offline mode).")
+        return json.loads(TOILETS_CACHE.read_text(encoding="utf-8"))
+    print("No toilets snapshot found: skipping city toilets.")
+    return None
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Seed Kraków points.")
+    parser.add_argument("--offline", action="store_true",
+                        help="use data/krakow_toilets.geojson instead of downloading (used on server start)")
+    args = parser.parse_args(argv)
+
     now_iso = to_iso(utc_now())
     rows = []
-    toilets = download_toilets()
+    toilets = load_snapshot() if args.offline else download_toilets()
     if toilets:
         rows += toilet_rows(toilets, now_iso, date.today().month)
     rows += demo_rows(now_iso)

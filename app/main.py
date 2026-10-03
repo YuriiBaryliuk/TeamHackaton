@@ -6,6 +6,8 @@ abuse.py, and return a pydantic model. /docs is generated from these.
 import csv
 import io
 import json
+import logging
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -29,6 +31,9 @@ async def lifespan(app: FastAPI):
     conn = db.connect()
     db.init_db(conn)  # creates tables on first start, no-op afterwards
     conn.close()
+    if "DEVICE_SALT" not in os.environ:
+        logging.getLogger("uvicorn.error").warning(
+            "DEVICE_SALT is not set: using the development salt. Set it in production.")
     yield
 
 

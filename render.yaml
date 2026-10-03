@@ -1,0 +1,16 @@
+# Render Blueprint: Dashboard -> New -> Blueprint -> pick this repository.
+# Free plan: no persistent disk, so the database is re-created (deterministically)
+# on every start by scripts/bootstrap.py. The service sleeps after ~15 min without
+# traffic; open the URL a minute before the demo to wake it up.
+services:
+  - type: web
+    name: kropka
+    runtime: docker
+    plan: free
+    region: frankfurt          # closest Render region to Kraków
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true           # every push to the branch redeploys
+    envVars:
+      - key: DEVICE_SALT
+        generateValue: true    # Render creates a random secret once
