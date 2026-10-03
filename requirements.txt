@@ -1,0 +1,14 @@
+# Web
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+
+# QR stickers
+qrcode[pil]==8.2
+pillow==12.3.0
+
+# Time zone data for zoneinfo("Europe/Warsaw"); slim Linux images may lack it
+tzdata==2026.5
+
+# Tests
+pytest==9.1.1
+httpx==0.28.1

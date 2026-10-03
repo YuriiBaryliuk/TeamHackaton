@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF6F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1E1518" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Kropka: mapa Krakowa">
+  <title>Kropka</title>
+  <link rel="preload" href="/static/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+        integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Kropka">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+          integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script type="module" src="/static/js/app.js"></script>
+</head>
+<body class="map-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span id="brand-dot"></span>Kropka</a>
+    <div class="topbar-controls">
+      <label class="visually-hidden" for="city-select" data-i18n="city.label">Miasto</label>
+      <select id="city-select" class="pill-select">
+        <option value="krakow" selected>Kraków</option>
+        <option value="warszawa" disabled data-soon="Warszawa">Warszawa</option>
+        <option value="wroclaw" disabled data-soon="Wrocław">Wrocław</option>
+        <option value="gdansk" disabled data-soon="Gdańsk">Gdańsk</option>
+      </select>
+      <label class="visually-hidden" for="lang-select" data-i18n="lang.label">Język</label>
+      <select id="lang-select" class="pill-select"></select>
+    </div>
+  </header>
+
+  <div id="map" role="application" data-i18n-aria="map.aria"></div>
+
+  <!-- Status legend, collapsible -->
+  <details class="legend card" id="legend">
+    <summary data-i18n="legend.title">Legenda</summary>
+    <ul>
+      <li><span data-icon="ok"></span><span data-i18n="status.ok"></span></li>
+      <li><span data-icon="low"></span><span data-i18n="status.low"></span></li>
+      <li><span data-icon="empty"></span><span data-i18n="status.empty"></span></li>
+      <li><span data-icon="unknown"></span><span data-i18n="legend.unknown"></span></li>
+      <li><span data-icon="ok" data-faded="1"></span><span data-i18n="legend.faded"></span></li>
+      <li><span data-icon="unknown" data-small="1"></span><span data-i18n="legend.small"></span></li>
+    </ul>
+    <a class="legend-link" href="/city" data-i18n="legend.city_link">Dane dla miasta</a>
+  </details>
+
+  <p id="notice" class="notice" role="status" hidden></p>
+
+  <!-- The big Urgent button, thumb-reachable -->
+  <button id="urgent-btn" class="urgent-btn" type="button">
+    <span id="urgent-dot"></span><span id="urgent-label" data-i18n="urgent.button">Pilne</span>
+  </button>
+
+  <!-- Bottom sheet: point details or the Urgent result -->
+  <aside id="sheet" class="sheet" aria-labelledby="sheet-title" hidden>
+    <button id="sheet-close" class="sheet-close" type="button" data-i18n-aria="sheet.close">&times;</button>
+    <div id="sheet-body"></div>
+  </aside>
+</body>
+</html>

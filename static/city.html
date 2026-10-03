@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF6F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1E1518" media="(prefers-color-scheme: dark)">
+  <title>Kropka · dane dla miasta</title>
+  <link rel="preload" href="/static/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="description" content="Kropka: dane dla miasta, szkół i organizacji">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+        integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Kropka">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+          integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script type="module" src="/static/js/city.js"></script>
+</head>
+<body class="dash-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span id="brand-dot"></span>Kropka</a>
+    <div class="topbar-controls">
+      <a class="btn secondary small-btn" href="/" data-i18n="dash.back_to_map">Mapa</a>
+      <label class="visually-hidden" for="lang-select" data-i18n="lang.label">Język</label>
+      <select id="lang-select" class="pill-select"></select>
+    </div>
+  </header>
+
+  <main class="dash">
+    <section class="dash-intro">
+      <h1 data-i18n="dash.title">Kropka dla Krakowa</h1>
+      <p class="muted" id="subtitle"></p>
+      <label class="period">
+        <span data-i18n="dash.period">Okres</span>
+        <select id="days" class="pill-select">
+          <option value="7">7</option>
+          <option value="30" selected>30</option>
+          <option value="90">90</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- Key figures -->
+    <section class="kpis" aria-live="polite">
+      <div class="kpi card"><p class="kpi-label" data-i18n="kpi.active"></p><p class="kpi-value" id="kpi-active">–</p><p class="kpi-hint muted" data-i18n="kpi.active_hint"></p></div>
+      <div class="kpi card"><p class="kpi-label" data-i18n="kpi.fresh"></p><p class="kpi-value" id="kpi-fresh">–</p><p class="kpi-hint muted" data-i18n="kpi.fresh_hint"></p></div>
+      <div class="kpi card"><p class="kpi-label" data-i18n="kpi.takes"></p><p class="kpi-value" id="kpi-takes">–</p><p class="kpi-hint muted" data-i18n="kpi.takes_hint"></p></div>
+      <div class="kpi card"><p class="kpi-label" data-i18n="kpi.wait"></p><p class="kpi-value" id="kpi-wait">–</p><p class="kpi-hint muted" data-i18n="kpi.wait_hint"></p></div>
+    </section>
+
+    <!-- The story: white spots -->
+    <section class="card dash-card">
+      <h2 data-i18n="ws.title"></h2>
+      <p class="story" id="ws-story"></p>
+      <div class="dash-map" id="ws-map" role="img" data-i18n-aria="ws.title"></div>
+      <p class="muted small" data-i18n="ws.legend"></p>
+      <h3 data-i18n="ws.top"></h3>
+      <ol class="spot-list" id="ws-list"></ol>
+    </section>
+
+    <section class="card dash-card">
+      <h2 data-i18n="demand.title"></h2>
+      <p class="story" data-i18n="demand.story"></p>
+      <div class="dash-map" id="demand-map" role="img" data-i18n-aria="demand.title"></div>
+      <p class="muted small" data-i18n="demand.legend"></p>
+    </section>
+
+    <section class="card dash-card">
+      <h2 data-i18n="table.title"></h2>
+      <p class="story" data-i18n="table.story"></p>
+      <div class="table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th scope="col" data-i18n="table.point"></th>
+              <th scope="col" class="num" data-i18n="table.runs_out"></th>
+              <th scope="col" class="num" data-i18n="table.wait"></th>
+              <th scope="col" class="num" data-i18n="table.takes"></th>
+              <th scope="col" class="num" data-i18n="table.cycles"></th>
+              <th scope="col" data-i18n="table.status"></th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+      <div class="sheet-actions">
+        <a class="btn" id="csv-link" href="/api/city/stats.csv" download data-i18n="table.download"></a>
+      </div>
+    </section>
+
+    <footer class="dash-footer">
+      <p id="demo-footer" class="message" data-i18n="dash.demo_footer" hidden></p>
+      <p class="muted small" data-i18n="dash.privacy"></p>
+      <p class="muted small">© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</p>
+    </footer>
+  </main>
+</body>
+</html>

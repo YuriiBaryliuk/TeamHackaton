@@ -1,0 +1,1155 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": 1,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.945701598627316,
+     50.05766677927727
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 1,
+    "miejsce": "ul. Dietla/ul. Starowiślna",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 2,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94175910847226,
+     50.05972289984404
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 2,
+    "miejsce": "ul. Sienna (Planty)N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "8.00-21.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 3,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.935178756669867,
+     50.06442642212212
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 3,
+    "miejsce": "Plac Szczepański (Planty od ul. św. Tomasza) N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "8.00-20.00 (IV-X), 9.00-18.00 (XI-III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 4,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.933561325405257,
+     50.05840301466158
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 4,
+    "miejsce": "ul. Straszewskiego (Planty) N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "8.00-20.00 (IV-X), 9.00-18.00 (XI-III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 5,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.929077147915102,
+     50.05551528940691
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 5,
+    "miejsce": "ul. Powiśle (bulwar naprzeciwko DH Jubilat) N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "9.00-20.00 (IV-X), 9.00-17.00 (XI-III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 6,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.93489265451671,
+     50.05222320604984
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 6,
+    "miejsce": "ul. Smocza (Bulwar Czerwieński) N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "9.00-20.00 (IV-X), 9.00-17.00 (XI- III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 7,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.937553405782438,
+     50.062175750753624
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 7,
+    "miejsce": "Rynek Główny - Sukiennice N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "8.00-24.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, oddzielnie",
+    "rodz_ob": "w budynku",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 8,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94518280025095,
+     50.07074356061741
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 8,
+    "miejsce": "ul. Warszawska (przejście podziemne)N",
+    "dzielnica": "01. Stare Miasto",
+    "godziny": "9.00-17.00",
+    "dni": "pn-pt",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny, w przejściu",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 9,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.949998855520874,
+     50.058578490648934
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 9,
+    "miejsce": "aleja Daszyńskiego / ulica Metalowców",
+    "dzielnica": "02. Grzegórzki",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 10,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.96006393415288,
+     50.065727234111804
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 10,
+    "miejsce": "Rondo Mogilskie",
+    "dzielnica": "02. Grzegórzki",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 11,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.957941055118916,
+     50.073795318829326
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 11,
+    "miejsce": "ul. Rakowicka (pętla tramwajowa) N",
+    "dzielnica": "02. Grzegórzki",
+    "godziny": "8.00-16.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 12,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.96494102541937,
+     50.08682250972273
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 12,
+    "miejsce": "Park Zaczarowanej Dorożki",
+    "dzielnica": "03. Prądnik Czerwony",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 13,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.974065780979597,
+     50.09663391144275
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 13,
+    "miejsce": "ulica Strzelców - Pętla MPK",
+    "dzielnica": "03. Prądnik Czerwony",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 14,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.968240737626413,
+     50.09017181358392
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 14,
+    "miejsce": "Park Przy ul. Naczelnej",
+    "dzielnica": "03. Prądnik Czerwony",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 15,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.90412521366352,
+     50.06263351434058
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 15,
+    "miejsce": "ul. D. Chodowieckiego",
+    "dzielnica": "05. Krowodrza",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 16,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.936470031952965,
+     50.075214386324454
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 16,
+    "miejsce": "ul. Prądnicka (pętla autobusowa Nowy Kleparz) N",
+    "dzielnica": "05. Krowodrza",
+    "godziny": "9.00-17.00",
+    "dni": "pn-pt",
+    "status": "nie",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": "remont do 19.06.2023"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 17,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9190750113638,
+     50.061622619576234
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 17,
+    "miejsce": "Park Jordana I (od ul. Ingardena) N",
+    "dzielnica": "05. Krowodrza",
+    "godziny": "10.00-19.00 (IV-X), 10.00-17.00 (XI-III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "wolnostojący",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 18,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.91704559322609,
+     50.064765929637346
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 18,
+    "miejsce": "Park Jordana II (od ul. W. Reymonta) N",
+    "dzielnica": "05. Krowodrza",
+    "godziny": "10.00-19.00 (IV-X), 10.00-17.00 (XI-III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "wolnostojący",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 19,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.925683975406876,
+     50.06924056986558
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 19,
+    "miejsce": "Park Krakowski (od ul. Królewskiej)",
+    "dzielnica": "05. Krowodrza",
+    "godziny": "pn-pt 9.00-18.00, sb-nd 10.00-16.00",
+    "dni": "Codziennie",
+    "status": "nie",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": "remont do 19.06.2023"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 20,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.880918503240505,
+     50.08154678296828
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 20,
+    "miejsce": "ulica Na Błonie",
+    "dzielnica": "06. Bronowice",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 21,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.901206970671115,
+     50.07437896727021
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 21,
+    "miejsce": "ul. Młodej Polski",
+    "dzielnica": "06. Bronowice",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 22,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9091987609193,
+     50.05687332240941
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 22,
+    "miejsce": "Al. Focha (parkinng przy Hali Cracovii)",
+    "dzielnica": "07. Zwierzyniec",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 23,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.916643143065798,
+     50.0529022215765
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 23,
+    "miejsce": "ul. Kościuszki (pętla tramwajowa) N",
+    "dzielnica": "07. Zwierzyniec",
+    "godziny": "9.00-17.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 24,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.91167640670532,
+     50.060920715048894
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 24,
+    "miejsce": "Błonia (od Al. 3 Maja) N",
+    "dzielnica": "07. Zwierzyniec",
+    "godziny": "10.00-19.00 (IV-X), 10.00-17.00 (XI-III)",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie męskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Tak",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 25,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.926748276251327,
+     50.0514564507828
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 25,
+    "miejsce": "Rynek Dębnicki",
+    "dzielnica": "08. Dębniki",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 26,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.934118271093972,
+     50.04675293025164
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 26,
+    "miejsce": "ul. Konopnickiej (przejście podziemne) N",
+    "dzielnica": "08. Dębniki",
+    "godziny": "9.00-17.00",
+    "dni": "pn-pt",
+    "status": "czynne",
+    "nplnsprw": "tak, oddzielnie",
+    "rodz_ob": "podziemny, w przejściu",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 27,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.88959884618261,
+     50.0181922911041
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 27,
+    "miejsce": "Terminal Czerwone Maki N",
+    "dzielnica": "08. Dębniki",
+    "godziny": "pn-pt 8.00-18.00, sb-nd 9.00-16.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "wolnostojący",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 28,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.922481536807805,
+     50.016632079810634
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 28,
+    "miejsce": "Park Solvay - ulica Żywiecka - boczna",
+    "dzielnica": "09. Łagiewniki-Borek Fałęcki",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 29,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.92613029444644,
+     50.011554718265415
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 29,
+    "miejsce": "ulica Sielska",
+    "dzielnica": "09. Łagiewniki-Borek Fałęcki",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 30,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.99564073533205,
+     50.019415597755554
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 30,
+    "miejsce": "Park Jerzmanowskich",
+    "dzielnica": "12. Bieżanów-Prokocim",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 31,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.987081527545282,
+     50.019493103173666
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 31,
+    "miejsce": "ul. Wielicka (przejście podziemne) N",
+    "dzielnica": "12. Bieżanów-Prokocim",
+    "godziny": "9.00-17.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny, w przejściu",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 32,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.007154464428982,
+     50.022800445953074
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 32,
+    "miejsce": "Podmiłów",
+    "dzielnica": "12. Bieżanów-Prokocim",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 33,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.992982863996698,
+     50.03478622412704
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 33,
+    "miejsce": "Bagry Zalew - ulica Kacza",
+    "dzielnica": "13. Podgórze",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 34,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.939945221526436,
+     50.036251067877416
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 34,
+    "miejsce": "Rondo A. Matecznego",
+    "dzielnica": "13. Podgórze",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 35,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.03953743057323,
+     50.073051452561685
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 35,
+    "miejsce": "Al. Solidarności",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "9.00-17.00",
+    "dni": "pn-pt",
+    "status": "nie",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "w budynku",
+    "sezon": "Nie",
+    "uwagi": "remont do 16.06.2024"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 36,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.954677582637935,
+     50.046733855593835
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 36,
+    "miejsce": "Pl. Bohaterów Getta (przejście podziemne) N",
+    "dzielnica": "13. Podgórze",
+    "godziny": "pn-pt 9.00-18.00, sb-nd 9.00-17.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, pomiędzy toaletą damską a męską",
+    "rodz_ob": "podziemny, w przejściu",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 37,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94902229299357,
+     50.04461288529591
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 37,
+    "miejsce": "Rynek Podgórski N",
+    "dzielnica": "13. Podgórze",
+    "godziny": "pn-pt 9.00-18.00, sb-nd 10.00-16.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, po stronie damskiej",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 38,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94997135142509,
+     50.041846398349094
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 38,
+    "miejsce": "Park Bednarskiego",
+    "dzielnica": "13. Podgórze",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak",
+    "rodz_ob": "w budynku",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 39,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.994500198485017,
+     50.07311470813029
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 39,
+    "miejsce": "Park Lotników",
+    "dzielnica": "14. Czyżyny",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": "awaria terminalna"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 40,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.000980376717166,
+     50.078464507734175
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 40,
+    "miejsce": "Park Czyżyny (os. Avia)",
+    "dzielnica": "14. Czyżyny",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 41,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.01750174119182,
+     50.07307401386782
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 41,
+    "miejsce": "Rondo Czyżyńskie (przejście podziemne) N",
+    "dzielnica": "14. Czyżyny",
+    "godziny": "8.00-17.00",
+    "dni": "pn-pt",
+    "status": "czynne",
+    "nplnsprw": "tak, oddzielnie",
+    "rodz_ob": "podziemny, w przejściu",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 42,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.0524044033902,
+     50.077060699291735
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 42,
+    "miejsce": "ulica Bulwarowa / aleja Solidarności",
+    "dzielnica": "16. Bieńczyce",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 43,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.01995468044852,
+     50.0853462219602
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 43,
+    "miejsce": "aleja Gen. W. Andersa/Rondo Gen. Maczka",
+    "dzielnica": "16. Bieńczyce",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 44,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.07079124451547,
+     50.09130477927806
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 44,
+    "miejsce": "Darwina",
+    "dzielnica": "17. Wzgórza Krzesławickie",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 45,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.040164948670064,
+     50.07486724877475
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 45,
+    "miejsce": "Park Ratuszowy",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 46,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.02713966378038,
+     50.07889938390585
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 46,
+    "miejsce": "Rondo Kocmyrzowskie",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 47,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.051067352367447,
+     50.06909561166475
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 47,
+    "miejsce": "os. Wandy (przy cmentarzu)",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "8.00-16.00",
+    "dni": "pn-sb",
+    "status": "czynne",
+    "nplnsprw": "nie",
+    "rodz_ob": "podziemny",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 48,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.117018867496718,
+     50.0732752827168
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 48,
+    "miejsce": "Petla autobusowa Pleszów",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "8.00-16.00",
+    "dni": "pn-pt",
+    "status": "czynne",
+    "nplnsprw": "nie",
+    "rodz_ob": "wolnostojący",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 49,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.038417815496576,
+     50.07437896707001
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 49,
+    "miejsce": "Al. Róż",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "9.00-17.00",
+    "dni": "pn-pt",
+    "status": "czynne",
+    "nplnsprw": "tak",
+    "rodz_ob": "w budynku",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 50,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     20.037736892558836,
+     50.07444763176431
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 50,
+    "miejsce": "Al. Róż",
+    "dzielnica": "18. Nowa Huta",
+    "godziny": "9.00-17.00",
+    "dni": "pn-pt",
+    "status": "nie",
+    "nplnsprw": "tak",
+    "rodz_ob": "w budynku",
+    "sezon": "Nie",
+    "uwagi": "remont do 16.06.2023"
+   }
+  }
+ ]
+}
