@@ -477,7 +477,92 @@ body.map-page {
 .place-name { font-weight: 800; font-size: 1.1rem; }
 .place.primary .place-name { font-size: 1.25rem; }
 
-.legend-link { display: inline-block; padding: 0 14px 12px; font-weight: 700; }
+.legend-links { display: grid; gap: 2px; padding: 0 14px 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+.legend-links a { display: flex; align-items: center; min-height: 40px; font-weight: 700; }
+
+.link-btn {
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.link-btn[aria-pressed="true"]::before { content: "✓ "; }
+
+.sheet-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
+
+/* ---------- secondary pages (add, steward, partner) ---------- */
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+  display: grid;
+  gap: 16px;
+}
+
+.page > * { min-width: 0; }
+.page h1 { margin: 4px 0 0; font-size: 1.7rem; line-height: 1.2; }
+.page > p { margin: 0; }
+
+.form { display: grid; gap: 16px; }
+.form fieldset { border: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.form legend { font-weight: 800; margin-bottom: 8px; }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 700; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.field input, .field select {
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.check { display: flex; align-items: center; gap: 10px; min-height: 48px; font-weight: 600; }
+.check input { width: 22px; height: 22px; accent-color: var(--accent); }
+
+.pick-map { height: 280px; border-radius: 14px; border: 1px solid var(--line); overflow: hidden; }
+
+.sheet-actions.center { justify-content: center; }
+
+.alerts { display: grid; gap: 10px; }
+.alerts:empty { display: none; }
+
+.alert-banner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: var(--shadow);
+  animation: sheet-up 0.25s ease-out;
+}
+
+.alert-banner p { margin: 0; }
+.alert-banner .btn { grid-column: 1 / -1; background: var(--bg); color: var(--ink); border-color: var(--bg); }
+.alert-banner .dot-svg circle { stroke: var(--bg); }
+
+.watch-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.watch-item p { margin: 0; }
+.watch-item.needs-refill { border-color: var(--accent); border-width: 2px; }
+
+.hero { text-align: center; display: grid; justify-items: center; gap: 4px; }
+.hero p { margin: 0; }
+.hero-number { font-size: 2.2rem; font-weight: 800; line-height: 1.15; }
+.status-kpi { display: flex; align-items: center; gap: 8px; font-size: 1.1rem !important; }
 
 /* ---------- city dashboard ---------- */
 

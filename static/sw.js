@@ -10,7 +10,7 @@
 //
 // Bump VERSION when the app shell changes: old caches are deleted on activate.
 
-const VERSION = "kropka-v3";
+const VERSION = "kropka-v4";
 const SHELL = `${VERSION}-shell`;
 const API = `${VERSION}-api`;
 const TILES = "kropka-tiles";
@@ -22,7 +22,10 @@ const LEAFLET_JS = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet
 const SHELL_FILES = [
   "/",
   "/city",
+  "/add",
+  "/steward",
   "/static/point.html",
+  "/static/partner.html",
   "/static/css/styles.css",
   "/static/js/app.js",
   "/static/js/api.js",
@@ -31,6 +34,11 @@ const SHELL_FILES = [
   "/static/js/i18n.js",
   "/static/js/point.js",
   "/static/js/pwa.js",
+  "/static/js/add.js",
+  "/static/js/steward.js",
+  "/static/js/partner.js",
+  "/static/js/watch.js",
+  "/static/js/header.js",
   "/static/i18n/pl.json",
   "/static/i18n/en.json",
   "/static/i18n/uk.json",
@@ -87,7 +95,8 @@ async function pageNetworkFirst(req, url) {
     return res;
   } catch {
     // /p/<id> pages all share the same HTML; its JS loads the point (from the API cache).
-    const fallback = url.pathname.startsWith("/p/") ? "/static/point.html" : "/";
+    const fallback = url.pathname.startsWith("/p/") ? "/static/point.html"
+      : url.pathname.startsWith("/partner/") ? "/static/partner.html" : "/";
     return (await cache.match(req)) || (await cache.match(fallback)) || Response.error();
   }
 }

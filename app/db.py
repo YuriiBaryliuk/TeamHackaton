@@ -29,7 +29,9 @@ CREATE TABLE IF NOT EXISTS points (
   has_qr        INTEGER DEFAULT 0,
   city          TEXT NOT NULL DEFAULT 'krakow',
   is_demo       INTEGER DEFAULT 0,
-  created_at    TEXT NOT NULL
+  created_at    TEXT NOT NULL,
+  approved      INTEGER NOT NULL DEFAULT 1,  -- 0 = added by a visitor, waiting for review
+  added_by      TEXT                         -- device hash of who added it (rate limit only)
 );
 
 CREATE TABLE IF NOT EXISTS events (
@@ -71,15 +73,29 @@ def connect(path: str | Path | None = None) -> sqlite3.Connection:
     target = str(path) if path is not None else str(DB_PATH)
     if target != ":memory:":
         Path(target).parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(target)
+    # check_same_thread=False: FastAPI may open the connection (in the get_db dependency) in
+    # one worker thread and run the endpoint in another. That is safe here because every
+    # connection belongs to exactly one request and is never used by two threads at once.
+    conn = sqlite3.connect(target, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
 
+# Columns added after the first version. Older databases get them on start.
+MIGRATIONS = [
+    ("points", "approved", "INTEGER NOT NULL DEFAULT 1"),
+    ("points", "added_by", "TEXT"),
+]
+
+
 def init_db(conn: sqlite3.Connection) -> None:
-    """Create tables if they do not exist yet. Safe to call on every start."""
+    """Create tables if they do not exist yet, add missing columns. Safe to call on every start."""
     conn.executescript(SCHEMA)
+    for table, column, declaration in MIGRATIONS:
+        existing = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        if column not in existing:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {declaration}")
     conn.commit()
 
 

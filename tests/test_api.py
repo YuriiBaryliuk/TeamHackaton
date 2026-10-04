@@ -159,6 +159,15 @@ def test_city_stats_csv(client):
     assert len(lines) == 3  # header + 2 boxes
 
 
+def test_parallel_requests_do_not_crash(client):
+    """Regression: the DB connection is opened in one worker thread and may be used in another."""
+    from concurrent.futures import ThreadPoolExecutor
+    paths = ["/api/points/box", "/api/points/box/stats", "/api/points", "/api/points/box2"] * 10
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        codes = list(pool.map(lambda p: client.get(p).status_code, paths))
+    assert codes == [200] * len(paths)
+
+
 def test_docs_and_openapi(client):
     assert client.get("/docs").status_code == 200
     paths = client.get("/openapi.json").json()["paths"]

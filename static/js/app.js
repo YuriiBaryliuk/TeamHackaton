@@ -5,6 +5,7 @@ import { getPoints, postUrgent } from "./api.js";
 import "./pwa.js";
 import { dotSvg } from "./dot.js";
 import { getLang, initI18n, LANGS, setLang, t, timeAgo } from "./i18n.js";
+import { isWatched, setWatched } from "./watch.js";
 
 const CITY = "krakow";
 const KRAKOW_CENTER = [50.0614, 19.9383];
@@ -167,6 +168,7 @@ function pointSheetHtml(p) {
   ].join("");
   return `
     ${p.is_demo ? `<span class="badge">${esc(t("point.demo"))}</span>` : ""}
+    ${p.approved !== false ? "" : `<span class="badge">${esc(t("point.pending"))}</span>`}
     <h2 id="sheet-title" tabindex="-1">${esc(p.name)}</h2>
     ${p.address ? `<p class="muted address">${esc(p.address)}</p>` : ""}
     <div class="status-row">
@@ -174,7 +176,13 @@ function pointSheetHtml(p) {
       <div><p class="status-text">${esc(statusWords(p))}</p><p class="muted">${esc(confirmedText(p))}</p></div>
     </div>
     <ul class="facts">${facts}</ul>
-    ${routeButtons(routesTo(p))}`;
+    ${routeButtons(routesTo(p))}
+    ${p.has_products ? `
+    <div class="sheet-links">
+      <button class="link-btn" type="button" data-watch="${esc(p.id)}" aria-pressed="${isWatched(p.id)}">
+        ${esc(t(isWatched(p.id) ? "watch.on" : "watch.cta"))}</button>
+      <a class="link-btn" href="/partner/${encodeURIComponent(p.id)}">${esc(t("partner.link"))}</a>
+    </div>` : ""}`;
 }
 
 function renderPointSheet() {
@@ -347,6 +355,14 @@ async function main() {
 
   $("urgent-btn").addEventListener("click", onUrgent);
   $("sheet-close").addEventListener("click", closeSheet);
+  // "Look after this point": saved in this browser only (watch.js), listed on /steward.
+  $("sheet-body").addEventListener("click", (e) => {
+    const id = e.target.closest("[data-watch]")?.dataset.watch;
+    if (!id) return;
+    setWatched(id, !isWatched(id));
+    renderPointSheet();
+    if (isWatched(id)) showNotice(t("watch.added"));
+  });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("sheet").hidden) closeSheet(); });
 
   await refresh();

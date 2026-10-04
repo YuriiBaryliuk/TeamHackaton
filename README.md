@@ -4,7 +4,9 @@ A live map of free menstrual hygiene products in Kraków. Built at HackYeah 2026
 
 A QR sticker on every box opens a page with three buttons: **Took / Empty / Refilled**. An **Urgent** button finds the nearest point that is in stock and open right now. A city dashboard shows demand and the **white spots** where boxes are missing.
 
-> Status: work in progress (milestones M0 to M8 done; deploy needs a Render account, see Deploy).
+> Status: work in progress (milestones M0 to M9 done).
+
+**Live demo:** https://kropka-05q6.onrender.com · [city dashboard](https://kropka-05q6.onrender.com/city) · [API docs](https://kropka-05q6.onrender.com/docs) · [stage box](https://kropka-05q6.onrender.com/p/krk-demo)
 
 ## Pages
 
@@ -13,6 +15,9 @@ A QR sticker on every box opens a page with three buttons: **Took / Empty / Refi
 | `/` | Map of Kraków with live dots and the Urgent button. Refreshes every 8 s while visible. `/?p=<id>` opens one point. |
 | `/p/<id>` | QR landing page with the Took / Empty / Refilled buttons |
 | `/city` | City dashboard: key figures, white spots, demand, fastest-emptying boxes, CSV |
+| `/add` | Suggest a new point (map picker + short form). Saved as "waiting for review". |
+| `/steward` | "My points": boxes this browser looks after, with an in-app alert when one runs empty. `/steward?watch=krk-demo` adds the stage box. |
+| `/partner/<id>` | Thank-you page for a venue: how often its box was used in the last 30 days |
 | `/docs` | API documentation |
 
 **Geolocation needs HTTPS** (or `localhost`). On a phone over plain HTTP, Urgent falls back to "search from the map centre".
@@ -109,6 +114,8 @@ Interactive documentation is at `/docs`.
 | GET | `/api/points/{id}` | One point (used by the QR page) |
 | POST | `/api/points/{id}/events` | `{type: took/empty/refilled, source: qr/geo/steward/partner, lat?, lon?}`. Returns the new status. |
 | POST | `/api/urgent` | `{lat, lon}`. Returns the best point, alternatives and a fallback. |
+| POST | `/api/points` | Suggest a new point. Limits: inside the city, nothing within 25 m (409), 3 per device per day (429). |
+| GET | `/api/points/{id}/stats?days=30` | Usage of one box (partner page) |
 | GET | `/api/city/stats?city=krakow&days=30` | Dashboard aggregates |
 | GET | `/api/city/stats.csv?days=30` | Per-box table as CSV |
 | GET | `/p/{id}` | QR landing page |
@@ -123,6 +130,18 @@ Example:
 curl -c jar -b jar -X POST localhost:8000/api/points/krk-0001/events \
      -H 'content-type: application/json' -d '{"type":"took"}'
 ```
+
+## Reviewing suggested points
+
+Points added on `/add` get `approved = 0`. They show on the map with a "waiting for review" badge, and Urgent never recommends them. There is no admin login (no accounts at all); whoever has server access runs:
+
+```bash
+python -m scripts.moderate list
+python -m scripts.moderate approve krk-2001
+python -m scripts.moderate reject krk-2001   # deletes the point and its marks
+```
+
+On Render, use the service's **Shell** tab. Photos are deliberately not supported: they could show people and would need moderation.
 
 ## Configuration
 

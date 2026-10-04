@@ -27,6 +27,7 @@ class Point(BaseModel):
     has_products: bool
     has_qr: bool
     is_demo: bool
+    approved: bool = True    # False = added by a visitor, waiting for review
     # computed by app/status.py
     status: Status
     confidence: Confidence
@@ -65,10 +66,49 @@ class ApiError(BaseModel):
     code: str
     message: str
     retry_after_s: int | None = None
+    point_id: str | None = None   # e.g. the existing point for code "duplicate"
 
 
 class ErrorResponse(BaseModel):
     detail: ApiError
+
+
+# ---------- adding a point ----------
+
+HHMM = r"^([01]\d|2[0-3]):[0-5]\d$|^24:00$"
+
+
+class NewPointIn(BaseModel):
+    name: str = Field(..., min_length=3, max_length=80)
+    kind: Literal["partner", "pink_box", "school", "university"]
+    lat: float = Field(..., ge=-90, le=90)
+    lon: float = Field(..., ge=-180, le=180)
+    address: str | None = Field(None, max_length=120)
+    access: Access = "open"
+    hours: Literal["always", "daily", "weekdays"] = "always"
+    open_from: str | None = Field(None, pattern=HHMM)
+    open_to: str | None = Field(None, pattern=HHMM)
+    wheelchair: bool = False
+
+    model_config = {"json_schema_extra": {"examples": [{
+        "name": "Kawiarnia na rogu", "kind": "partner", "lat": 50.0645, "lon": 19.9450,
+        "access": "ask_staff", "hours": "daily", "open_from": "08:00", "open_to": "20:00"}]}}
+
+
+class NewPointOut(BaseModel):
+    id: str
+    point: Point
+
+
+class PointStats(BaseModel):
+    id: str
+    days: int
+    takes: int
+    empties: int
+    refills: int
+    cycles: int
+    avg_refill_to_empty_h: float | None
+    avg_empty_to_refill_h: float | None
 
 
 # ---------- city dashboard ----------

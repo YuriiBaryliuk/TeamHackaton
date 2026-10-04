@@ -6,7 +6,7 @@ compute_stats() is pure (no database), load_stats() reads the database and calls
 import math
 import sqlite3
 from collections import Counter, defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from statistics import median
 
 from app.db import fetch_events_by_point, fetch_points, to_iso
@@ -78,22 +78,29 @@ def white_spots(searches: list[dict], points: list[dict]) -> list[dict]:
 
 # ---------- everything ----------
 
+def box_activity(events: list[dict]) -> dict:
+    """Counts and average cycle times for one box (events of the period, oldest first)."""
+    kinds = Counter(e["type"] for e in events)
+    runs_out = refill_to_empty_hours(events)
+    return {
+        "takes": kinds["took"], "empties": kinds["empty"], "refills": kinds["refilled"],
+        "cycles": len(runs_out),
+        "avg_refill_to_empty_h": _avg(runs_out),
+        "avg_empty_to_refill_h": _avg(empty_to_refill_hours(events)),
+    }
+
+
 def compute_stats(points: list[dict], window_events: dict[str, list[dict]], searches: list[dict]) -> dict:
     """points: with current status. window_events: events in the period, per point, oldest first."""
     boxes = [p for p in points if p["has_products"]]
     rows, all_waits = [], []
     for p in boxes:
         ev = window_events.get(p["id"], [])
-        kinds = Counter(e["type"] for e in ev)
-        runs_out, waits = refill_to_empty_hours(ev), empty_to_refill_hours(ev)
-        all_waits += waits
+        all_waits += empty_to_refill_hours(ev)
         rows.append({
             "id": p["id"], "name": p["name"], "kind": p["kind"], "lat": p["lat"], "lon": p["lon"],
             "status": p["status"], "confidence": p["confidence"], "is_demo": bool(p["is_demo"]),
-            "takes": kinds["took"], "empties": kinds["empty"], "refills": kinds["refilled"],
-            "cycles": len(runs_out),
-            "avg_refill_to_empty_h": _avg(runs_out),
-            "avg_empty_to_refill_h": _avg(waits),
+            **box_activity(ev),
         })
     # Fastest-emptying first; boxes that never ran out go last.
     rows.sort(key=lambda r: (r["avg_refill_to_empty_h"] is None, r["avg_refill_to_empty_h"] or 0, -r["takes"]))
@@ -109,6 +116,15 @@ def compute_stats(points: list[dict], window_events: dict[str, list[dict]], sear
         "searches_not_found": not_found,
     }
     return {"kpis": kpis, "white_spots": white_spots(searches, points), "boxes": rows}
+
+
+def load_point_stats(conn: sqlite3.Connection, point_id: str, days: int) -> dict:
+    """Activity of one point in the last `days` days (for the partner page)."""
+    since = to_iso(datetime.now(timezone.utc) - timedelta(days=days))
+    events = [dict(r) for r in conn.execute(
+        "SELECT type, created_at FROM events WHERE point_id = ? AND created_at >= ? ORDER BY created_at",
+        (point_id, since))]
+    return {"id": point_id, "days": days, **box_activity(events)}
 
 
 def load_stats(conn: sqlite3.Connection, city: str, days: int, now: datetime) -> dict:

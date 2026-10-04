@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF6F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1E1518" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Kropka: zgłoś nowy punkt">
+  <title>Kropka · dodaj punkt</title>
+  <link rel="preload" href="/static/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+        integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+          integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script type="module" src="/static/js/add.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span id="brand-dot"></span>Kropka</a>
+    <div class="topbar-controls">
+      <a class="btn secondary small-btn" href="/" data-i18n="dash.back_to_map">Mapa</a>
+      <label class="visually-hidden" for="lang-select" data-i18n="lang.label">Język</label>
+      <select id="lang-select" class="pill-select"></select>
+    </div>
+  </header>
+
+  <main class="page">
+    <h1 data-i18n="add.title">Dodaj punkt</h1>
+    <p class="muted" data-i18n="add.intro"></p>
+
+    <form id="add-form" class="card form" novalidate>
+      <fieldset>
+        <legend data-i18n="add.where"></legend>
+        <div id="pick-map" class="pick-map" role="application" data-i18n-aria="add.where"></div>
+        <p class="muted small" data-i18n="add.map_hint"></p>
+        <button type="button" class="btn secondary" id="locate" data-i18n="add.use_location"></button>
+      </fieldset>
+
+      <div class="field">
+        <label for="name" data-i18n="add.name"></label>
+        <input id="name" name="name" required minlength="3" maxlength="80" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="kind" data-i18n="add.kind"></label>
+        <select id="kind" name="kind">
+          <option value="partner" data-i18n="kind.partner"></option>
+          <option value="pink_box" data-i18n="kind.pink_box"></option>
+          <option value="school" data-i18n="kind.school"></option>
+          <option value="university" data-i18n="kind.university"></option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="address" data-i18n="add.address"></label>
+        <input id="address" name="address" maxlength="120" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="access" data-i18n="add.access"></label>
+        <select id="access" name="access">
+          <option value="open" data-i18n="access.open"></option>
+          <option value="ask_staff" data-i18n="access.ask_staff"></option>
+          <option value="students_only" data-i18n="access.students_only"></option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="hours" data-i18n="add.hours"></label>
+        <select id="hours" name="hours">
+          <option value="always" data-i18n="hours.always"></option>
+          <option value="daily" data-i18n="add.hours_daily"></option>
+          <option value="weekdays" data-i18n="add.hours_weekdays"></option>
+        </select>
+      </div>
+
+      <div class="field-row" id="times" hidden>
+        <div class="field">
+          <label for="open_from" data-i18n="add.from"></label>
+          <input id="open_from" name="open_from" type="time" value="08:00">
+        </div>
+        <div class="field">
+          <label for="open_to" data-i18n="add.to"></label>
+          <input id="open_to" name="open_to" type="time" value="20:00">
+        </div>
+      </div>
+
+      <label class="check"><input type="checkbox" id="wheelchair" name="wheelchair"> <span data-i18n="sheet.wheelchair"></span></label>
+
+      <p id="message" class="message" role="alert" hidden></p>
+      <button class="btn" type="submit" id="submit" data-i18n="add.submit"></button>
+      <p class="muted small" data-i18n="add.privacy"></p>
+    </form>
+
+    <section id="done" class="card done" role="status" tabindex="-1" hidden>
+      <span id="done-dot"></span>
+      <h2 data-i18n="done.title"></h2>
+      <p id="done-text"></p>
+      <div class="sheet-actions center">
+        <a class="btn" id="done-map" href="/" data-i18n="point.open_map"></a>
+        <a class="btn secondary" id="done-point" href="/" data-i18n="add.see_point"></a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

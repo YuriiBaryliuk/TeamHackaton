@@ -40,5 +40,9 @@ export const postEvent = (id, type, source = "qr") =>
     body: JSON.stringify({ type, source }),
   });
 
+export const getPointStats = (id, days = 30) => api(`/api/points/${encodeURIComponent(id)}/stats?days=${days}`);
+
+export const postNewPoint = (data) => api("/api/points", { method: "POST", body: JSON.stringify(data) });
+
 export const postUrgent = (lat, lon) =>
   api("/api/urgent", { method: "POST", body: JSON.stringify({ lat, lon }) });

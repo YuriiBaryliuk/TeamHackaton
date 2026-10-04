@@ -7,6 +7,7 @@ import csv
 import io
 import json
 import logging
+import mimetypes
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -16,14 +17,18 @@ from fastapi.responses import FileResponse, HTMLResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from app import abuse, db
-from app.schemas import CityStats, ErrorResponse, EventIn, EventOut, Point, PointList, UrgentIn, UrgentOut
-from app.stats import load_stats
+from app import abuse, db, points
+from app.schemas import (CityStats, ErrorResponse, EventIn, EventOut, NewPointIn, NewPointOut, Point,
+                         PointList, PointStats, UrgentIn, UrgentOut)
+from app.stats import load_point_stats, load_stats
 from app.status import compute_status, points_with_status
 from app.urgent import CITY_CENTRES, LOG_RADIUS_M, find_urgent, haversine_m, is_open, log_urgent_search
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = BASE_DIR / "static"
+
+# Slim Linux images do not know .woff2; tell StaticFiles the proper font type.
+mimetypes.add_type("font/woff2", ".woff2")
 
 
 @asynccontextmanager
@@ -61,6 +66,18 @@ def error(status: int, code: str, message: str, retry_after_s: int | None = None
     return HTTPException(status, {"code": code, "message": message, "retry_after_s": retry_after_s}, headers=headers)
 
 
+def device_hash_for(request: Request, response: Response) -> str:
+    """Anonymous device id: reuse the cookie, or give this browser a new one. Returns its salted hash."""
+    device_id = request.cookies.get(abuse.DEVICE_COOKIE)
+    if not abuse.is_valid_device_id(device_id):
+        device_id = abuse.new_device_id()
+    response.set_cookie(
+        abuse.DEVICE_COOKIE, device_id, max_age=abuse.COOKIE_MAX_AGE_S,
+        httponly=True, samesite="lax", secure=request.url.scheme == "https",
+    )
+    return abuse.hash_device(device_id)
+
+
 def with_display_fields(point: dict, now) -> dict:
     """Parse the opening hours JSON and add the 'open now' flag."""
     point["opening_hours"] = json.loads(point["opening_hours"])
@@ -70,8 +87,8 @@ def with_display_fields(point: dict, now) -> dict:
 
 def load_points(conn, city: str, now) -> list[dict]:
     """All points of a city with their computed status."""
-    points = points_with_status(db.fetch_points(conn, city), db.fetch_events_by_point(conn, city), now)
-    return [with_display_fields(p, now) for p in points]
+    rows = points_with_status(db.fetch_points(conn, city), db.fetch_events_by_point(conn, city), now)
+    return [with_display_fields(p, now) for p in rows]
 
 
 def load_point(conn, point_id: str, now) -> dict:
@@ -100,12 +117,12 @@ def health() -> Health:
 def list_points(city: str = "krakow", conn=Depends(get_db)) -> PointList:
     """All points of a city with live status, freshness and minutes since the last confirmation."""
     now = db.utc_now()
-    points = load_points(conn, city, now)
+    rows = load_points(conn, city, now)
     return PointList(
         city=city,
         generated_at=db.to_iso(now),
-        has_demo_data=any(p["is_demo"] for p in points),
-        points=points,
+        has_demo_data=any(p["is_demo"] for p in rows),
+        points=rows,
     )
 
 
@@ -130,16 +147,7 @@ def post_event(point_id: str, body: EventIn, request: Request, response: Respons
     point = db.fetch_point(conn, point_id)
     if point is None:
         raise error(404, "point_not_found", "This point does not exist.")
-
-    # Anonymous device id: reuse the cookie, or give this browser a new one.
-    device_id = request.cookies.get(abuse.DEVICE_COOKIE)
-    if not abuse.is_valid_device_id(device_id):
-        device_id = abuse.new_device_id()
-    response.set_cookie(
-        abuse.DEVICE_COOKIE, device_id, max_age=abuse.COOKIE_MAX_AGE_S,
-        httponly=True, samesite="lax", secure=request.url.scheme == "https",
-    )
-    device_hash = abuse.hash_device(device_id)
+    device_hash = device_hash_for(request, response)
 
     if body.source == "geo":
         problem = abuse.check_geo(point, body.lat, body.lon)
@@ -152,6 +160,44 @@ def post_event(point_id: str, body: EventIn, request: Request, response: Respons
 
     db.insert_event(conn, point_id, body.type, body.source, device_hash, now)  # lat/lon NOT stored
     return EventOut(saved=True, type=body.type, point=load_point(conn, point_id, now))
+
+
+@app.post("/api/points", response_model=NewPointOut, status_code=201, tags=["points"],
+          responses={409: {"model": ErrorResponse}, 422: {"model": ErrorResponse},
+                     429: {"model": ErrorResponse}})
+def add_point(body: NewPointIn, request: Request, response: Response, city: str = "krakow",
+              conn=Depends(get_db)) -> NewPointOut:
+    """Suggest a new box location. It is saved as waiting for review (approved = false):
+    shown on the map with a badge, never recommended by Urgent until approved.
+
+    Limits: inside the city, not within 25 m of an existing point (409),
+    at most 3 new points per device per day (429). No photos and no personal data.
+    """
+    now = db.utc_now()
+    device_hash = device_hash_for(request, response)
+    if not points.inside_city(city, body.lat, body.lon):
+        raise error(422, "outside_city", "This location is outside the city.")
+    try:
+        hours = points.build_opening_hours(body.hours, body.open_from, body.open_to)
+    except ValueError:
+        raise error(422, "bad_hours", "Opening time must be before closing time.")
+    existing = points.nearby_point(conn, body.lat, body.lon)
+    if existing:
+        raise HTTPException(409, {"code": "duplicate", "message": "There is already a point here.",
+                                  "point_id": existing})
+    if points.added_today(conn, device_hash, now) >= points.MAX_NEW_POINTS_PER_DAY:
+        raise error(429, "add_limit", "Thank you! You can add more points tomorrow.")
+    point_id = points.insert_point(conn, body.model_dump(), hours, device_hash, now, city)
+    return NewPointOut(id=point_id, point=load_point(conn, point_id, now))
+
+
+@app.get("/api/points/{point_id}/stats", response_model=PointStats, tags=["points"],
+         responses={404: {"model": ErrorResponse}})
+def point_stats(point_id: str, days: int = Query(30, ge=1, le=365), conn=Depends(get_db)) -> PointStats:
+    """How a single box was used in the last `days` days (for the partner page)."""
+    if db.fetch_point(conn, point_id) is None:
+        raise error(404, "point_not_found", "This point does not exist.")
+    return load_point_stats(conn, point_id, days)
 
 
 # ---------- urgent ----------
@@ -219,6 +265,26 @@ def service_worker() -> FileResponse:
 @app.get("/favicon.ico", include_in_schema=False)
 def favicon() -> FileResponse:
     return FileResponse(STATIC_DIR / "icons" / "favicon.ico", media_type="image/x-icon")
+
+
+@app.get("/add", include_in_schema=False)
+def add_page() -> FileResponse:
+    """Suggest a new point."""
+    return FileResponse(STATIC_DIR / "add.html")
+
+
+@app.get("/steward", include_in_schema=False)
+def steward_page() -> FileResponse:
+    """"My points": boxes this browser looks after (kept in the browser only)."""
+    return FileResponse(STATIC_DIR / "steward.html")
+
+
+@app.get("/partner/{point_id}", include_in_schema=False)
+def partner_page(point_id: str, conn=Depends(get_db)):
+    """Thank-you page for a partner venue: how often its box was used."""
+    if db.fetch_point(conn, point_id) is None:
+        return HTMLResponse("<h1>Kropka</h1><p>Nie znaleziono punktu / Point not found.</p>", status_code=404)
+    return FileResponse(STATIC_DIR / "partner.html")
 
 
 @app.get("/city", include_in_schema=False)

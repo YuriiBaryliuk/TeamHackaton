@@ -4,6 +4,7 @@ import { getPoint, postEvent } from "./api.js";
 import "./pwa.js";
 import { dotSvg } from "./dot.js";
 import { initI18n, renderLangSwitch, t, timeAgo } from "./i18n.js";
+import { isWatched, setWatched } from "./watch.js";
 
 const $ = (id) => document.getElementById(id);
 const pointId = decodeURIComponent(location.pathname.split("/p/")[1] || "").replace(/\/$/, "");
@@ -22,6 +23,11 @@ function render() {
   $("loading").hidden = true;
   $("point-info").hidden = false;
   $("demo-badge").hidden = !point.is_demo;
+  $("pending-badge").hidden = point.approved !== false;
+  $("watch-btn").hidden = !point.has_products;
+  const watched = isWatched(point.id);
+  $("watch-btn").textContent = t(watched ? "watch.on" : "watch.cta");
+  $("watch-btn").setAttribute("aria-pressed", String(watched));
   $("point-name").textContent = point.name;
   $("point-address").textContent = point.address || "";
   $("status-dot").innerHTML = dotSvg(point.status, { size: 44, faded });
@@ -77,6 +83,10 @@ async function main() {
   $("open-map").href = `/?p=${encodeURIComponent(pointId)}`;
   document.querySelector(".action-buttons").addEventListener("click", onAction);
   document.addEventListener("langchange", render);
+  $("watch-btn").addEventListener("click", () => {
+    setWatched(pointId, !isWatched(pointId));
+    render();
+  });
 
   try {
     point = await getPoint(pointId);

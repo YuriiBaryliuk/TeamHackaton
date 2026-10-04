@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF6F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1E1518" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Kropka: profil punktu partnerskiego">
+  <title>Kropka · profil punktu</title>
+  <link rel="preload" href="/static/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <script type="module" src="/static/js/partner.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span id="brand-dot"></span>Kropka</a>
+    <div class="topbar-controls">
+      <a class="btn secondary small-btn" href="/" data-i18n="dash.back_to_map">Mapa</a>
+      <label class="visually-hidden" for="lang-select" data-i18n="lang.label">Język</label>
+      <select id="lang-select" class="pill-select"></select>
+    </div>
+  </header>
+
+  <main class="page">
+    <p id="loading" class="muted" data-i18n="point.loading">Wczytywanie…</p>
+    <div id="profile" hidden>
+      <span id="demo-badge" class="badge" data-i18n="point.demo" hidden></span>
+      <h1 id="name"></h1>
+      <p class="muted" id="address"></p>
+
+      <section class="card hero">
+        <span id="hero-dot"></span>
+        <p class="hero-number" id="uses"></p>
+        <p class="muted" id="uses-period"></p>
+        <p id="thanks" data-i18n="partner.thanks"></p>
+      </section>
+
+      <section class="kpis">
+        <div class="kpi card"><p class="kpi-label" data-i18n="partner.refills"></p><p class="kpi-value" id="refills">–</p></div>
+        <div class="kpi card"><p class="kpi-label" data-i18n="table.runs_out"></p><p class="kpi-value" id="runs-out">–</p></div>
+        <div class="kpi card"><p class="kpi-label" data-i18n="table.wait"></p><p class="kpi-value" id="wait">–</p></div>
+        <div class="kpi card"><p class="kpi-label" data-i18n="table.status"></p><p class="kpi-value status-kpi" id="now"></p></div>
+      </section>
+
+      <p id="tip" class="message" hidden></p>
+      <div class="sheet-actions">
+        <a class="btn" id="qr-link" href="/" data-i18n="partner.qr_page"></a>
+        <a class="btn secondary" id="map-link" href="/" data-i18n="point.open_map"></a>
+      </div>
+      <p class="muted small" data-i18n="dash.privacy"></p>
+    </div>
+    <p id="message" class="message" role="alert" hidden></p>
+  </main>
+</body>
+</html>

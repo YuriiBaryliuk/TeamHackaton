@@ -3,7 +3,7 @@
 Pure functions, except log_urgent_search() which writes one row.
 
 Rules:
-- Candidates: status ok or low, confidence fresh, open now (Europe/Warsaw time).
+- Candidates: status ok or low, confidence fresh, approved, open now (Europe/Warsaw time).
 - Distance: haversine. Walking minutes = distance * 1.3 (streets are not straight) / 80 m per minute.
 - found = True only if the best candidate is within 10 minutes' walk.
 - Otherwise we also return a fallback: the nearest open pharmacy or shop,
@@ -142,7 +142,8 @@ def find_urgent(points: list[dict], lat: float, lon: float, now: datetime) -> di
     candidates = [
         _result(p, lat, lon, now)
         for p in points
-        if p.get("status") in IN_STOCK and p.get("confidence") == "fresh" and is_open(p["opening_hours"], now)
+        if p.get("status") in IN_STOCK and p.get("confidence") == "fresh" and p.get("approved", 1)
+        and is_open(p["opening_hours"], now)
     ]
     if night:
         # 24/7 places first (False sorts before True), then by walking time.
