@@ -4,7 +4,6 @@
     python -m scripts.seed_osm --download   # refresh the snapshots from the Overpass API first
 
 Kraków is not here: it uses the city's own open dataset (seed_points.py).
-Data © OpenStreetMap contributors, ODbL. Snapshots: data/osm_<city>.json.
 
 What is imported (is_demo = 0, has_products = 0: nothing is known about free products there):
 - amenity=toilets, except access=private/customers/no/permit -> kind 'city_toilet'
@@ -163,7 +162,7 @@ def main(argv: list[str] | None = None) -> int:
         kinds = {k: sum(1 for r in rows if r["kind"] == k) for k in ("city_toilet", "pharmacy")}
         unknown = sum(1 for r in rows if '"unknown"' in r["opening_hours"])
         print(f"{city}: {kinds['city_toilet']} toilets, {kinds['pharmacy']} pharmacies "
-              f"({unknown} with unknown opening hours). © OpenStreetMap contributors.")
+              f"({unknown} with unknown opening hours).")
     return 0
 
 

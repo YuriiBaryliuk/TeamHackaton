@@ -414,7 +414,6 @@ async function main() {
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     crossOrigin: true, // CORS tiles can be cached by the service worker cheaply
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
   $("urgent-btn").addEventListener("click", onUrgent);
