@@ -72,7 +72,7 @@ No frontend framework and no build step: every file in `static/` is served as wr
 **Status of a box** ([app/status.py](app/status.py)) comes from the latest "refilled" or "empty" mark:
 
 - refilled → **ok** (filled dot); 5 or more "took" marks after that → **low** (half dot)
-- empty → **empty** (ring). A "took" after "empty" does not make it ok again; only a refill does.
+- empty → **empty** (ring). While a box is marked empty, "took" is not possible: the QR page disables the button and the API answers 409. If there is something inside, the right mark is "refilled".
 - no marks → **unknown** (pale grey dot)
 - the newest mark of any kind sets freshness: under 24 h **fresh**, 24 to 72 h **faded** (pale), over 72 h shown as **unknown**
 

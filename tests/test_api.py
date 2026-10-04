@@ -66,6 +66,16 @@ def test_event_changes_status_and_sets_cookie(client):
     assert r.json()["point"]["status"] == "empty"
 
 
+def test_took_is_refused_on_an_empty_box(client):
+    post(client, "box", type="refilled")
+    post(client, "box", type="empty")
+    r = post(client, "box", type="took")
+    assert r.status_code == 409 and r.json()["detail"]["code"] == "box_empty"
+    client.cookies.clear()                                           # another person (no rate limit clash)
+    assert post(client, "box", type="refilled").status_code == 200   # refill is still possible
+    assert post(client, "box", type="took").status_code == 200       # and then taking again
+
+
 def test_same_event_twice_is_rate_limited(client):
     assert post(client, "box", type="took").status_code == 200
     r = post(client, "box", type="took")

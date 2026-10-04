@@ -24,6 +24,12 @@ function render() {
   $("point-info").hidden = false;
   $("demo-badge").hidden = !point.is_demo;
   $("pending-badge").hidden = point.approved !== false;
+  // A box marked empty: nothing to take. If there IS something inside, it was refilled.
+  const empty = point.status === "empty";
+  const took = document.querySelector('.action[data-type="took"]');
+  took.disabled = empty;
+  took.classList.toggle("unavailable", empty);
+  $("took-hint").hidden = !empty;
   $("watch-btn").hidden = !point.has_products;
   const watched = isWatched(point.id);
   $("watch-btn").textContent = t(watched ? "watch.on" : "watch.cta");
@@ -72,6 +78,7 @@ async function onAction(e) {
     showMessage(err.code);
   } finally {
     buttons.forEach((b) => { b.disabled = false; });
+    render(); // re-applies the "empty box: no took" rule
   }
 }
 

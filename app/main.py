@@ -151,19 +151,25 @@ def get_point(point_id: str, conn=Depends(get_db)) -> Point:
 
 @app.post("/api/points/{point_id}/events", response_model=EventOut, tags=["points"],
           responses={400: {"model": ErrorResponse}, 403: {"model": ErrorResponse},
-                     404: {"model": ErrorResponse}, 429: {"model": ErrorResponse}})
+                     404: {"model": ErrorResponse}, 409: {"model": ErrorResponse},
+                     429: {"model": ErrorResponse}})
 def post_event(point_id: str, body: EventIn, request: Request, response: Response,
                conn=Depends(get_db)) -> EventOut:
     """Record "took", "empty" or "refilled" for a point and return its new status.
 
     Rate limits: one event of the same type per point per device per 10 minutes,
     30 events per device per day (HTTP 429). Source 'geo' must be within 150 m.
+    "took" is refused for a box currently marked empty (HTTP 409): if there is
+    something inside, it was refilled, and "refilled" is the right mark.
     """
     now = db.utc_now()
     point = db.fetch_point(conn, point_id)
     if point is None:
         raise error(404, "point_not_found", "This point does not exist.")
     device_hash = device_hash_for(request, response)
+
+    if body.type == "took" and load_point(conn, point_id, now)["status"] == "empty":
+        raise error(409, "box_empty", "This box is marked empty. If there is something inside, mark it as refilled.")
 
     if body.source == "geo":
         problem = abuse.check_geo(point, body.lat, body.lon)

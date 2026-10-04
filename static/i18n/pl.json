@@ -162,5 +162,7 @@
   "urgent.geo_unavailable": "Urządzenie nie ustaliło lokalizacji. Włącz Wi-Fi i usługi lokalizacji (na Macu: Ustawienia systemowe → Prywatność i ochrona → Usługi lokalizacji → włącz dla przeglądarki).",
   "urgent.geo_timeout": "Ustalanie lokalizacji trwało za długo. Spróbuj jeszcze raz za chwilę.",
   "urgent.geo_insecure": "Lokalizacja działa tylko na bezpiecznej stronie (https://). Otwórz Kropkę pod adresem https://kropka-05q6.onrender.com.",
-  "hours.unknown": "Godziny otwarcia nieznane"
+  "hours.unknown": "Godziny otwarcia nieznane",
+  "point.took_disabled": "Punkt jest oznaczony jako pusty, więc nie ma czego wziąć. Jeśli w środku coś jest, wybierz „Uzupełniłam”.",
+  "error.box_empty": "Ten punkt jest oznaczony jako pusty. Jeśli w środku coś jest, wybierz „Uzupełniłam”."
 }

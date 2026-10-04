@@ -158,5 +158,7 @@
   "urgent.geo_unavailable": "Your device could not determine its location. Turn on Wi-Fi and Location Services (on a Mac: System Settings → Privacy & Security → Location Services → turn it on for your browser).",
   "urgent.geo_timeout": "Finding your location took too long. Please try again in a moment.",
   "urgent.geo_insecure": "Location only works on a secure page (https://). Open Kropka at https://kropka-05q6.onrender.com.",
-  "hours.unknown": "Opening hours unknown"
+  "hours.unknown": "Opening hours unknown",
+  "point.took_disabled": "This point is marked empty, so there is nothing to take. If there is something inside, choose \"I refilled it\".",
+  "error.box_empty": "This point is marked empty. If there is something inside, choose \"I refilled it\"."
 }

@@ -249,6 +249,8 @@ a { color: var(--accent); }
 
 .action:active { transform: scale(0.98); background: var(--accent-soft); }
 .action:disabled { opacity: 0.55; cursor: progress; }
+.action.unavailable { opacity: 0.4; cursor: not-allowed; border-style: dashed; box-shadow: none; }
+.action-hint { margin: -4px 4px 4px; }
 
 .done { text-align: center; }
 .done h2 { margin: 8px 0 4px; font-size: 1.4rem; }
@@ -483,9 +485,14 @@ body.map-page {
 .legend-links { display: grid; gap: 2px; padding: 0 14px 12px; border-top: 1px solid var(--line); padding-top: 8px; }
 .legend-links a { display: flex; align-items: center; min-height: 40px; font-weight: 700; }
 
+/* Works the same on <button> and <a>: a flex box gives both the same height and
+   centres the text, so neighbours always sit on one line. */
 .link-btn {
+  display: inline-flex;
+  align-items: center;
   min-height: 44px;
   padding: 0 4px;
+  line-height: 1.2;
   border: none;
   background: none;
   color: var(--accent);
@@ -498,7 +505,7 @@ body.map-page {
 
 .link-btn[aria-pressed="true"]::before { content: "✓ "; }
 
-.sheet-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
+.sheet-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 22px; margin-top: 10px; }
 
 /* ---------- secondary pages (add, steward, partner) ---------- */
 

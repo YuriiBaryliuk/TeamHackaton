@@ -47,7 +47,8 @@
     <section id="actions" hidden>
       <p class="question" data-i18n="point.question"></p>
       <div class="action-buttons">
-        <button class="action" type="button" data-type="took"><span data-icon="low"></span><span data-i18n="action.took"></span></button>
+        <button class="action" type="button" data-type="took" aria-describedby="took-hint"><span data-icon="low"></span><span data-i18n="action.took"></span></button>
+        <p id="took-hint" class="action-hint muted small" data-i18n="point.took_disabled" hidden></p>
         <button class="action" type="button" data-type="empty"><span data-icon="empty"></span><span data-i18n="action.empty"></span></button>
         <button class="action" type="button" data-type="refilled"><span data-icon="ok"></span><span data-i18n="action.refilled"></span></button>
       </div>

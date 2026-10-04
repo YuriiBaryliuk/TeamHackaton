@@ -10,7 +10,7 @@
 //
 // Bump VERSION when the app shell changes: old caches are deleted on activate.
 
-const VERSION = "kropka-v9";
+const VERSION = "kropka-v11";
 const SHELL = `${VERSION}-shell`;
 const API = `${VERSION}-api`;
 const TILES = "kropka-tiles";
