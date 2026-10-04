@@ -44,5 +44,6 @@ export const getPointStats = (id, days = 30) => api(`/api/points/${encodeURIComp
 
 export const postNewPoint = (data) => api("/api/points", { method: "POST", body: JSON.stringify(data) });
 
-export const postUrgent = (lat, lon) =>
-  api("/api/urgent", { method: "POST", body: JSON.stringify({ lat, lon }) });
+// The server detects the city from the location; `city` is only used outside all cities.
+export const postUrgent = (lat, lon, city = "krakow") =>
+  api(`/api/urgent?city=${encodeURIComponent(city)}`, { method: "POST", body: JSON.stringify({ lat, lon }) });

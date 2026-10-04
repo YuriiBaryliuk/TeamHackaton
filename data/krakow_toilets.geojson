@@ -214,14 +214,14 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     19.96006393415288,
-     50.065727234111804
+     19.90412521366352,
+     50.06263351434058
     ]
    },
    "properties": {
     "ESRI_OID": 10,
-    "miejsce": "Rondo Mogilskie",
-    "dzielnica": "02. Grzegórzki",
+    "miejsce": "ul. D. Chodowieckiego",
+    "dzielnica": "05. Krowodrza",
     "godziny": "całodobowo",
     "dni": "Codziennie",
     "status": "czynne",
@@ -237,12 +237,35 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     19.96006393415288,
+     50.065727234111804
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 11,
+    "miejsce": "Rondo Mogilskie",
+    "dzielnica": "02. Grzegórzki",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 12,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      19.957941055118916,
      50.073795318829326
     ]
    },
    "properties": {
-    "ESRI_OID": 11,
+    "ESRI_OID": 12,
     "miejsce": "ul. Rakowicka (pętla tramwajowa) N",
     "dzielnica": "02. Grzegórzki",
     "godziny": "8.00-16.00",
@@ -256,7 +279,7 @@
   },
   {
    "type": "Feature",
-   "id": 12,
+   "id": 13,
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -265,31 +288,8 @@
     ]
    },
    "properties": {
-    "ESRI_OID": 12,
-    "miejsce": "Park Zaczarowanej Dorożki",
-    "dzielnica": "03. Prądnik Czerwony",
-    "godziny": "całodobowo",
-    "dni": "Codziennie",
-    "status": "czynne",
-    "nplnsprw": "Tak",
-    "rodz_ob": "wolnostojąca",
-    "sezon": "Nie",
-    "uwagi": null
-   }
-  },
-  {
-   "type": "Feature",
-   "id": 13,
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     19.974065780979597,
-     50.09663391144275
-    ]
-   },
-   "properties": {
     "ESRI_OID": 13,
-    "miejsce": "ulica Strzelców - Pętla MPK",
+    "miejsce": "Park Zaczarowanej Dorożki",
     "dzielnica": "03. Prądnik Czerwony",
     "godziny": "całodobowo",
     "dni": "Codziennie",
@@ -306,13 +306,13 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     19.968240737626413,
-     50.09017181358392
+     19.974065780979597,
+     50.09663391144275
     ]
    },
    "properties": {
     "ESRI_OID": 14,
-    "miejsce": "Park Przy ul. Naczelnej",
+    "miejsce": "ulica Strzelców - Pętla MPK",
     "dzielnica": "03. Prądnik Czerwony",
     "godziny": "całodobowo",
     "dni": "Codziennie",
@@ -329,14 +329,14 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     19.90412521366352,
-     50.06263351434058
+     19.968240737626413,
+     50.09017181358392
     ]
    },
    "properties": {
     "ESRI_OID": 15,
-    "miejsce": "ul. D. Chodowieckiego",
-    "dzielnica": "05. Krowodrza",
+    "miejsce": "Park Przy ul. Naczelnej",
+    "dzielnica": "03. Prądnik Czerwony",
     "godziny": "całodobowo",
     "dni": "Codziennie",
     "status": "czynne",
@@ -605,12 +605,35 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     19.954677582637935,
+     50.046733855593835
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 27,
+    "miejsce": "Pl. Bohaterów Getta (przejście podziemne) N",
+    "dzielnica": "13. Podgórze",
+    "godziny": "pn-pt 9.00-18.00, sb-nd 9.00-17.00",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "tak, pomiędzy toaletą damską a męską",
+    "rodz_ob": "podziemny, w przejściu",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 28,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      19.88959884618261,
      50.0181922911041
     ]
    },
    "properties": {
-    "ESRI_OID": 27,
+    "ESRI_OID": 28,
     "miejsce": "Terminal Czerwone Maki N",
     "dzielnica": "08. Dębniki",
     "godziny": "pn-pt 8.00-18.00, sb-nd 9.00-16.00",
@@ -624,7 +647,7 @@
   },
   {
    "type": "Feature",
-   "id": 28,
+   "id": 29,
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -633,31 +656,8 @@
     ]
    },
    "properties": {
-    "ESRI_OID": 28,
-    "miejsce": "Park Solvay - ulica Żywiecka - boczna",
-    "dzielnica": "09. Łagiewniki-Borek Fałęcki",
-    "godziny": "całodobowo",
-    "dni": "Codziennie",
-    "status": "czynne",
-    "nplnsprw": "Tak",
-    "rodz_ob": "wolnostojąca",
-    "sezon": "Nie",
-    "uwagi": null
-   }
-  },
-  {
-   "type": "Feature",
-   "id": 29,
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     19.92613029444644,
-     50.011554718265415
-    ]
-   },
-   "properties": {
     "ESRI_OID": 29,
-    "miejsce": "ulica Sielska",
+    "miejsce": "Park Solvay - ulica Żywiecka - boczna",
     "dzielnica": "09. Łagiewniki-Borek Fałęcki",
     "godziny": "całodobowo",
     "dni": "Codziennie",
@@ -674,14 +674,14 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     19.99564073533205,
-     50.019415597755554
+     19.92613029444644,
+     50.011554718265415
     ]
    },
    "properties": {
     "ESRI_OID": 30,
-    "miejsce": "Park Jerzmanowskich",
-    "dzielnica": "12. Bieżanów-Prokocim",
+    "miejsce": "ulica Sielska",
+    "dzielnica": "09. Łagiewniki-Borek Fałęcki",
     "godziny": "całodobowo",
     "dni": "Codziennie",
     "status": "czynne",
@@ -697,12 +697,35 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     19.99564073533205,
+     50.019415597755554
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 31,
+    "miejsce": "Park Jerzmanowskich",
+    "dzielnica": "12. Bieżanów-Prokocim",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 32,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      19.987081527545282,
      50.019493103173666
     ]
    },
    "properties": {
-    "ESRI_OID": 31,
+    "ESRI_OID": 32,
     "miejsce": "ul. Wielicka (przejście podziemne) N",
     "dzielnica": "12. Bieżanów-Prokocim",
     "godziny": "9.00-17.00",
@@ -716,7 +739,7 @@
   },
   {
    "type": "Feature",
-   "id": 32,
+   "id": 33,
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -725,7 +748,7 @@
     ]
    },
    "properties": {
-    "ESRI_OID": 32,
+    "ESRI_OID": 33,
     "miejsce": "Podmiłów",
     "dzielnica": "12. Bieżanów-Prokocim",
     "godziny": "całodobowo",
@@ -739,7 +762,7 @@
   },
   {
    "type": "Feature",
-   "id": 33,
+   "id": 34,
    "geometry": {
     "type": "Point",
     "coordinates": [
@@ -748,31 +771,8 @@
     ]
    },
    "properties": {
-    "ESRI_OID": 33,
-    "miejsce": "Bagry Zalew - ulica Kacza",
-    "dzielnica": "13. Podgórze",
-    "godziny": "całodobowo",
-    "dni": "Codziennie",
-    "status": "czynne",
-    "nplnsprw": "Tak",
-    "rodz_ob": "wolnostojąca",
-    "sezon": "Nie",
-    "uwagi": null
-   }
-  },
-  {
-   "type": "Feature",
-   "id": 34,
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     19.939945221526436,
-     50.036251067877416
-    ]
-   },
-   "properties": {
     "ESRI_OID": 34,
-    "miejsce": "Rondo A. Matecznego",
+    "miejsce": "Bagry Zalew - ulica Kacza",
     "dzielnica": "13. Podgórze",
     "godziny": "całodobowo",
     "dni": "Codziennie",
@@ -789,12 +789,35 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     19.939945221526436,
+     50.036251067877416
+    ]
+   },
+   "properties": {
+    "ESRI_OID": 35,
+    "miejsce": "Rondo A. Matecznego",
+    "dzielnica": "13. Podgórze",
+    "godziny": "całodobowo",
+    "dni": "Codziennie",
+    "status": "czynne",
+    "nplnsprw": "Tak",
+    "rodz_ob": "wolnostojąca",
+    "sezon": "Nie",
+    "uwagi": null
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 36,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      20.03953743057323,
      50.073051452561685
     ]
    },
    "properties": {
-    "ESRI_OID": 35,
+    "ESRI_OID": 36,
     "miejsce": "Al. Solidarności",
     "dzielnica": "18. Nowa Huta",
     "godziny": "9.00-17.00",
@@ -804,29 +827,6 @@
     "rodz_ob": "w budynku",
     "sezon": "Nie",
     "uwagi": "remont do 16.06.2024"
-   }
-  },
-  {
-   "type": "Feature",
-   "id": 36,
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     19.954677582637935,
-     50.046733855593835
-    ]
-   },
-   "properties": {
-    "ESRI_OID": 36,
-    "miejsce": "Pl. Bohaterów Getta (przejście podziemne) N",
-    "dzielnica": "13. Podgórze",
-    "godziny": "pn-pt 9.00-18.00, sb-nd 9.00-17.00",
-    "dni": "Codziennie",
-    "status": "czynne",
-    "nplnsprw": "tak, pomiędzy toaletą damską a męską",
-    "rodz_ob": "podziemny, w przejściu",
-    "sezon": "Nie",
-    "uwagi": null
    }
   },
   {

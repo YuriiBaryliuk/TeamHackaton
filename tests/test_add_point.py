@@ -25,6 +25,14 @@ def test_add_point_is_pending(client):
     assert add(client, lat=50.0700).json()["id"] == "krk-2002"
 
 
+def test_point_in_another_city_gets_that_city(client):
+    r = add(client, lat=52.2297, lon=21.0122)  # Warsaw
+    assert r.status_code == 201
+    assert r.json()["id"] == "waw-2001"
+    assert client.get("/api/points?city=warszawa").json()["points"][0]["id"] == "waw-2001"
+    assert all(p["id"] != "waw-2001" for p in client.get("/api/points?city=krakow").json()["points"])
+
+
 def test_duplicate_within_25_m_is_rejected(client):
     r = add(client, lat=RYNEK[0] + 0.0001, lon=RYNEK[1])  # ~11 m from the test box
     assert r.status_code == 409
@@ -32,7 +40,7 @@ def test_duplicate_within_25_m_is_rejected(client):
 
 
 def test_outside_city_and_bad_hours(client):
-    assert add(client, lat=52.23, lon=21.01).json()["detail"]["code"] == "outside_city"
+    assert add(client, lat=51.76, lon=19.46).json()["detail"]["code"] == "outside_city"  # Łódź
     r = add(client, open_from="20:00", open_to="08:00")
     assert r.status_code == 422 and r.json()["detail"]["code"] == "bad_hours"
     assert add(client, kind="city_toilet").status_code == 422   # only box kinds can be added

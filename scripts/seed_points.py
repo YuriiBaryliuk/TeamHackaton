@@ -23,6 +23,7 @@ import urllib.request
 from datetime import date
 
 from app.db import BASE_DIR, connect, init_db, to_iso, utc_now
+from scripts import demo_cities
 
 TOILETS_URL = "https://msip.um.krakow.pl/arcgis/rest/services/Obserwatorium/WT_WC_2023/MapServer/0/query"
 TOILETS_FIELDS = "ESRI_OID,miejsce,dzielnica,godziny,dni,status,nplnsprw,rodz_ob,sezon,uwagi"
@@ -127,6 +128,7 @@ def toilet_rows(geojson: dict, now_iso: str, month: int) -> list[dict]:
             "has_qr": 0,
             "is_demo": 0,
             "created_at": now_iso,
+            "city": "krakow",
         })
     print(f"City toilets: {len(rows)} working, {skipped} skipped as not working.")
     return rows
@@ -188,11 +190,15 @@ DEMO_POINTS = [
 
 
 def demo_rows(now_iso: str) -> list[dict]:
+    """Kraków demo points (above) plus the demo boxes of the other cities (demo_cities.py)."""
     keys = ["id", "name", "kind", "lat", "lon", "address", "access", "opening_hours", "wheelchair", "has_products", "has_qr"]
+    per_city = [("krakow", values) for values in DEMO_POINTS]
+    per_city += [(city, values[:-1]) for city, pts in demo_cities.DEMO_POINTS.items() for values in pts]  # drop profile
     rows = []
-    for values in DEMO_POINTS:
+    for city, values in per_city:
         row = dict(zip(keys, values))
-        row.update(opening_hours=json.dumps(row["opening_hours"]), entry_fee_pln=0, is_demo=1, created_at=now_iso)
+        row.update(opening_hours=json.dumps(row["opening_hours"]), entry_fee_pln=0, is_demo=1,
+                   created_at=now_iso, city=city)
         rows.append(row)
     return rows
 
@@ -203,7 +209,7 @@ UPSERT = """
 INSERT INTO points (id, name, kind, lat, lon, address, access, entry_fee_pln, opening_hours,
                     wheelchair, has_products, has_qr, city, is_demo, created_at)
 VALUES (:id, :name, :kind, :lat, :lon, :address, :access, :entry_fee_pln, :opening_hours,
-        :wheelchair, :has_products, :has_qr, 'krakow', :is_demo, :created_at)
+        :wheelchair, :has_products, :has_qr, :city, :is_demo, :created_at)
 ON CONFLICT(id) DO UPDATE SET
   name=excluded.name, kind=excluded.kind, lat=excluded.lat, lon=excluded.lon, address=excluded.address,
   access=excluded.access, entry_fee_pln=excluded.entry_fee_pln, opening_hours=excluded.opening_hours,
@@ -238,7 +244,8 @@ def main(argv: list[str] | None = None) -> int:
     conn.executemany(UPSERT, rows)
     conn.commit()
     total = conn.execute("SELECT COUNT(*) FROM points WHERE city='krakow'").fetchone()[0]
-    print(f"Upserted {len(rows)} points ({len(DEMO_POINTS)} demo). Total Kraków points in DB: {total}.")
+    demo = sum(1 for r in rows if r["is_demo"])
+    print(f"Upserted {len(rows)} points ({demo} demo, all cities). Kraków points in DB: {total}.")
     print("NOTE: demo points (is_demo=1) have illustrative names and positions, not real partners.")
     return 0
 

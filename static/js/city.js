@@ -1,15 +1,16 @@
 // City dashboard: key figures, white spots, demand, fastest-emptying boxes.
 // All numbers come ready-made from /api/city/stats (computed in app/stats.py).
+import { fillCitySelect, getCity, loadCities, saveCity, savedCity } from "./cities.js";
 import { dotSvg } from "./dot.js";
 import "./pwa.js";
 import { fmtHours, fmtNumber, getLang, initI18n, LANGS, setLang, t, tn } from "./i18n.js";
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
-const KRAKOW_CENTER = [50.0614, 19.9383];
 const TABLE_ROWS = 10;
 
 let stats = null;
+let city = "krakow";
 let wsMap, demandMap, wsLayer, demandLayer;
 
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -18,7 +19,8 @@ const css = (name) => getComputedStyle(document.documentElement).getPropertyValu
 const radius = (value, max) => 6 + 22 * Math.sqrt(value / Math.max(1, max));
 
 function makeMap(id) {
-  const m = L.map(id, { scrollWheelZoom: false }).setView(KRAKOW_CENTER, 12);
+  const c = getCity(city);
+  const m = L.map(id, { scrollWheelZoom: false }).setView([c.lat, c.lon], 12);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     crossOrigin: true, // CORS tiles can be cached by the service worker cheaply
@@ -98,6 +100,7 @@ function renderTable() {
 
 function render() {
   if (!stats) return;
+  $("title").textContent = t("dash.title", { city: getCity(stats.city).name });
   $("subtitle").textContent = t("dash.subtitle", { days: stats.days });
   $("demo-footer").hidden = !stats.has_demo_data;
   renderKpis(stats.kpis);
@@ -108,9 +111,9 @@ function render() {
 
 async function load() {
   const days = $("days").value;
-  $("csv-link").href = `/api/city/stats.csv?city=krakow&days=${days}`;
+  $("csv-link").href = `/api/city/stats.csv?city=${encodeURIComponent(city)}&days=${days}`;
   try {
-    const res = await fetch(`/api/city/stats?city=krakow&days=${days}`);
+    const res = await fetch(`/api/city/stats?city=${encodeURIComponent(city)}&days=${days}`);
     if (!res.ok) throw new Error(String(res.status));
     stats = await res.json();
   } catch {
@@ -135,7 +138,17 @@ async function main() {
     document.querySelectorAll("#days option").forEach((o) => { o.textContent = t("dash.days", { n: o.value }); });
     render();
   });
-  await initI18n();
+  await Promise.all([initI18n(), loadCities()]);
+  city = savedCity();
+  fillCitySelect($("city-select"), city);
+  $("city-select").addEventListener("change", (e) => {
+    city = e.target.value;
+    saveCity(city);
+    const c = getCity(city);
+    wsMap.setView([c.lat, c.lon], 12);       // load() then fits the maps to the data
+    demandMap.setView([c.lat, c.lon], 12);
+    load();
+  });
 
   wsMap = makeMap("ws-map");
   demandMap = makeMap("demand-map");

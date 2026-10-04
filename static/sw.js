@@ -10,7 +10,7 @@
 //
 // Bump VERSION when the app shell changes: old caches are deleted on activate.
 
-const VERSION = "kropka-v4";
+const VERSION = "kropka-v9";
 const SHELL = `${VERSION}-shell`;
 const API = `${VERSION}-api`;
 const TILES = "kropka-tiles";
@@ -39,6 +39,7 @@ const SHELL_FILES = [
   "/static/js/partner.js",
   "/static/js/watch.js",
   "/static/js/header.js",
+  "/static/js/cities.js",
   "/static/i18n/pl.json",
   "/static/i18n/en.json",
   "/static/i18n/uk.json",
@@ -113,9 +114,12 @@ async function apiNetworkFirst(req) {
     // A single point never opened before: take it from the cached list of all points.
     const single = new URL(req.url).pathname.match(/^\/api\/points\/([^/]+)$/);
     if (!data && single) {
-      const list = await cache.match("/api/points?city=krakow");
       const id = decodeURIComponent(single[1]);
-      data = list ? (await list.json()).points.find((p) => p.id === id) || null : null;
+      for (const key of await cache.keys()) {   // any cached city list may contain it
+        if (!new URL(key.url).pathname.endsWith("/api/points")) continue;
+        data = (await (await cache.match(key)).json()).points.find((p) => p.id === id) || null;
+        if (data) break;
+      }
     }
     if (!data) return Response.error();
     return new Response(JSON.stringify({ ...data, offline: true }), {

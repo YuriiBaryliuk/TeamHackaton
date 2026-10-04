@@ -3,20 +3,22 @@
 import { postNewPoint } from "./api.js";
 import "./pwa.js";
 import { dotSvg } from "./dot.js";
+import { getCity, loadCities, savedCity } from "./cities.js";
 import { setupHeader } from "./header.js";
 import { initI18n, t } from "./i18n.js";
 
 const $ = (id) => document.getElementById(id);
-const KRAKOW_CENTER = [50.0614, 19.9383];
 let map, marker;
 
 function initMap() {
-  map = L.map("pick-map").setView(KRAKOW_CENTER, 14);
+  const c = getCity(savedCity());          // start in the city selected on the map
+  const start = [c.lat, c.lon];
+  map = L.map("pick-map").setView(start, 14);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19, crossOrigin: true,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
-  marker = L.marker(KRAKOW_CENTER, {
+  marker = L.marker(start, {
     draggable: true, keyboard: true,
     icon: L.divIcon({ className: "kropka-marker", html: dotSvg("ok", { size: 30 }), iconSize: [44, 44] }),
   }).addTo(map);
@@ -90,7 +92,7 @@ async function onSubmit(e) {
 
 async function main() {
   setupHeader();
-  await initI18n();
+  await Promise.all([initI18n(), loadCities()]);
   initMap();
   $("locate").addEventListener("click", useMyLocation);
   $("hours").addEventListener("change", () => { $("times").hidden = $("hours").value === "always"; });

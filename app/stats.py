@@ -11,11 +11,13 @@ from statistics import median
 
 from app.db import fetch_events_by_point, fetch_points, to_iso
 from app.status import parse_ts, points_with_status
-from app.urgent import CITY_CENTRES, LOG_RADIUS_M, haversine_m
+from app.cities import inside_city
+from app.urgent import haversine_m
 
 GRID_DEG = 0.005          # white-spot grid cell, about 550 m x 360 m in Kraków
 TOP_WHITE_SPOTS = 30
-WHITE_SPOT_MIN_SHARE = 0.5   # a cell is a white spot if at least half of its searches found nothing
+WHITE_SPOT_MIN_SHARE = 0.5
+GENERIC_NAMES = {"Toaleta publiczna", "Apteka"}   # not useful as a landmark   # a cell is a white spot if at least half of its searches found nothing
 
 
 # ---------- cycles of one box ----------
@@ -65,13 +67,16 @@ def white_spots(searches: list[dict], points: list[dict]) -> list[dict]:
     failed = Counter(grid_cell(s["lat_r"], s["lon_r"]) for s in searches if not s["found"])
     total = Counter(grid_cell(s["lat_r"], s["lon_r"]) for s in searches)
     cells = [(cell, n) for cell, n in failed.most_common() if n / total[cell] >= WHITE_SPOT_MIN_SHARE]
+    # The label should say WHERE the spot is: an address ("Aleje Jerozolimskie 54") is best,
+    # a specific name next; unnamed places ("Toaleta publiczna") say nothing.
+    landmarks = [p for p in points if p.get("address") or p["name"] not in GENERIC_NAMES] or points
     spots = []
     for (i, j), count in cells[:TOP_WHITE_SPOTS]:
         lat, lon = (i + 0.5) * GRID_DEG, (j + 0.5) * GRID_DEG
-        near = min(points, key=lambda p: haversine_m(lat, lon, p["lat"], p["lon"]), default=None)
+        near = min(landmarks, key=lambda p: haversine_m(lat, lon, p["lat"], p["lon"]), default=None)
         spots.append({
             "lat": round(lat, 5), "lon": round(lon, 5), "count": count, "searches": total[(i, j)],
-            "near": near["name"] if near else None,  # a landmark so people know where it is
+            "near": (near.get("address") or near["name"]) if near else None,  # so people know where it is
         })
     return spots
 
@@ -142,11 +147,10 @@ def load_stats(conn: sqlite3.Connection, city: str, days: int, now: datetime) ->
         demo_events = demo_events or bool(r["is_demo"])
 
     # urgent_searches has no city column: keep the ones within the city radius.
-    centre = CITY_CENTRES.get(city)
     searches = [
         dict(r) for r in conn.execute(
             "SELECT lat_r, lon_r, found, is_demo FROM urgent_searches WHERE created_at >= ?", (since,))
-        if centre and haversine_m(r["lat_r"], r["lon_r"], *centre) <= LOG_RADIUS_M
+        if inside_city(city, r["lat_r"], r["lon_r"])
     ]
 
     stats = compute_stats(points, window_events, searches)

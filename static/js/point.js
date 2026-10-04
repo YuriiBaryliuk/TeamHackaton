@@ -37,7 +37,7 @@ function render() {
     : t("point.never");
   $("point-meta").textContent = [
     t(`access.${point.access}`),
-    t(point.open_now ? "open.now" : "open.closed"),
+    point.opening_hours.unknown ? t("hours.unknown") : t(point.open_now ? "open.now" : "open.closed"),
     point.entry_fee_pln > 0 ? t("fee.paid", { fee: point.entry_fee_pln }) : null,
   ].filter(Boolean).join(" · ");
   document.title = `${point.name} · Kropka`;

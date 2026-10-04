@@ -18,11 +18,12 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from app import abuse, db, points
-from app.schemas import (CityStats, ErrorResponse, EventIn, EventOut, NewPointIn, NewPointOut, Point,
+from app.cities import CITIES, DEFAULT_CITY, city_for
+from app.schemas import (CityInfo, CityStats, ErrorResponse, EventIn, EventOut, NewPointIn, NewPointOut, Point,
                          PointList, PointStats, UrgentIn, UrgentOut)
 from app.stats import load_point_stats, load_stats
 from app.status import compute_status, points_with_status
-from app.urgent import CITY_CENTRES, LOG_RADIUS_M, find_urgent, haversine_m, is_open, log_urgent_search
+from app.urgent import find_urgent, is_open, log_urgent_search
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = BASE_DIR / "static"
@@ -111,11 +112,26 @@ def health() -> Health:
     return Health(status="ok", app="kropka")
 
 
+def check_city(city: str) -> str:
+    if city not in CITIES:
+        raise error(404, "city_not_found", f"Unknown city. Supported: {', '.join(CITIES)}.")
+    return city
+
+
+# ---------- cities ----------
+
+@app.get("/api/cities", response_model=list[CityInfo], tags=["cities"])
+def list_cities() -> list[CityInfo]:
+    """Supported cities with their map centres (for the city selector)."""
+    return [CityInfo(id=code, name=c["name"], lat=c["center"][0], lon=c["center"][1]) for code, c in CITIES.items()]
+
+
 # ---------- points ----------
 
-@app.get("/api/points", response_model=PointList, tags=["points"])
-def list_points(city: str = "krakow", conn=Depends(get_db)) -> PointList:
+@app.get("/api/points", response_model=PointList, tags=["points"], responses={404: {"model": ErrorResponse}})
+def list_points(city: str = DEFAULT_CITY, conn=Depends(get_db)) -> PointList:
     """All points of a city with live status, freshness and minutes since the last confirmation."""
+    check_city(city)
     now = db.utc_now()
     rows = load_points(conn, city, now)
     return PointList(
@@ -165,18 +181,19 @@ def post_event(point_id: str, body: EventIn, request: Request, response: Respons
 @app.post("/api/points", response_model=NewPointOut, status_code=201, tags=["points"],
           responses={409: {"model": ErrorResponse}, 422: {"model": ErrorResponse},
                      429: {"model": ErrorResponse}})
-def add_point(body: NewPointIn, request: Request, response: Response, city: str = "krakow",
+def add_point(body: NewPointIn, request: Request, response: Response,
               conn=Depends(get_db)) -> NewPointOut:
     """Suggest a new box location. It is saved as waiting for review (approved = false):
     shown on the map with a badge, never recommended by Urgent until approved.
 
-    Limits: inside the city, not within 25 m of an existing point (409),
-    at most 3 new points per device per day (429). No photos and no personal data.
+    Limits: inside a supported city (detected from the location), not within 25 m of an
+    existing point (409), at most 3 new points per device per day (429). No photos, no personal data.
     """
     now = db.utc_now()
     device_hash = device_hash_for(request, response)
-    if not points.inside_city(city, body.lat, body.lon):
-        raise error(422, "outside_city", "This location is outside the city.")
+    city = city_for(body.lat, body.lon)
+    if city is None:
+        raise error(422, "outside_city", "This location is outside the supported cities.")
     try:
         hours = points.build_opening_hours(body.hours, body.open_from, body.open_to)
     except ValueError:
@@ -203,19 +220,22 @@ def point_stats(point_id: str, days: int = Query(30, ge=1, le=365), conn=Depends
 # ---------- urgent ----------
 
 @app.post("/api/urgent", response_model=UrgentOut, tags=["urgent"])
-def urgent(body: UrgentIn, city: str = "krakow", conn=Depends(get_db)) -> UrgentOut:
+def urgent(body: UrgentIn, city: str = DEFAULT_CITY, conn=Depends(get_db)) -> UrgentOut:
     """Nearest point that is in stock, freshly confirmed and open now, plus 2 alternatives.
 
-    If nothing is within 10 minutes' walk, `found` is false and `fallback` is the
-    nearest pharmacy or shop. The search is logged anonymously (coordinates
-    rounded to ~100 m) for the white-spots map.
+    The city is detected from the location (someone in Warsaw gets Warsaw results even if
+    the map shows Kraków); `city` is only used when the location is outside all cities.
+    If nothing is within 10 minutes' walk, `found` is false and `fallback` is the nearest
+    pharmacy or shop. Searches inside a city are logged anonymously (coordinates rounded
+    to ~100 m) for the white-spots map.
     """
     now = db.utc_now()
-    result = find_urgent(load_points(conn, city, now), body.lat, body.lon, now)
-    centre = CITY_CENTRES.get(city)
-    if centre and haversine_m(body.lat, body.lon, *centre) <= LOG_RADIUS_M:
-        log_urgent_search(conn, body.lat, body.lon, result, now)  # only searches inside the city
-    return result
+    detected = city_for(body.lat, body.lon)
+    search_city = detected or check_city(city)
+    result = find_urgent(load_points(conn, search_city, now), body.lat, body.lon, now)
+    if detected:
+        log_urgent_search(conn, body.lat, body.lon, result, now)
+    return {**result, "city": search_city}
 
 
 # ---------- city dashboard ----------
@@ -225,17 +245,17 @@ CSV_COLUMNS = ["id", "name", "kind", "status", "takes", "empties", "refills", "c
 
 
 @app.get("/api/city/stats", response_model=CityStats, tags=["city"])
-def city_stats(city: str = "krakow", days: int = Query(30, ge=1, le=365), conn=Depends(get_db)) -> CityStats:
+def city_stats(city: str = DEFAULT_CITY, days: int = Query(30, ge=1, le=365), conn=Depends(get_db)) -> CityStats:
     """Anonymous aggregates for the city dashboard: key figures, white spots
     (Urgent searches that found nothing, on a ~500 m grid) and per-box cycles."""
-    return load_stats(conn, city, days, db.utc_now())
+    return load_stats(conn, check_city(city), days, db.utc_now())
 
 
 @app.get("/api/city/stats.csv", tags=["city"], response_class=PlainTextResponse,
          responses={200: {"content": {"text/csv": {}}}})
-def city_stats_csv(city: str = "krakow", days: int = Query(30, ge=1, le=365), conn=Depends(get_db)):
+def city_stats_csv(city: str = DEFAULT_CITY, days: int = Query(30, ge=1, le=365), conn=Depends(get_db)):
     """The per-box table as CSV (opens in Excel). Contains no personal data."""
-    stats = load_stats(conn, city, days, db.utc_now())
+    stats = load_stats(conn, check_city(city), days, db.utc_now())
     out = io.StringIO()
     out.write("﻿")  # BOM: Excel then reads Polish characters correctly
     writer = csv.DictWriter(out, fieldnames=CSV_COLUMNS, extrasaction="ignore")

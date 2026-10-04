@@ -27,6 +27,8 @@
     <a class="brand" href="/"><span id="brand-dot"></span>Kropka</a>
     <div class="topbar-controls">
       <a class="btn secondary small-btn" href="/" data-i18n="dash.back_to_map">Mapa</a>
+      <label class="visually-hidden" for="city-select" data-i18n="city.label">Miasto</label>
+      <select id="city-select" class="pill-select"></select>
       <label class="visually-hidden" for="lang-select" data-i18n="lang.label">Język</label>
       <select id="lang-select" class="pill-select"></select>
     </div>
@@ -34,7 +36,7 @@
 
   <main class="dash">
     <section class="dash-intro">
-      <h1 data-i18n="dash.title">Kropka dla Krakowa</h1>
+      <h1 id="title">Kropka</h1>
       <p class="muted" id="subtitle"></p>
       <label class="period">
         <span data-i18n="dash.period">Okres</span>

@@ -48,6 +48,14 @@ def test_white_spots_count_only_failed_searches():
     assert [(s["count"], s["searches"], s["near"]) for s in spots] == [(3, 4, "Station"), (1, 1, "Nowa Huta")]
 
 
+def test_landmark_prefers_address_and_skips_unnamed_places():
+    searches = [{"lat_r": 52.229, "lon_r": 21.003, "found": 0}]
+    points = [{"name": "Toaleta publiczna", "lat": 52.229, "lon": 21.003},
+              {"name": "Ziko Apteka", "address": "Aleje Jerozolimskie 54", "lat": 52.2289, "lon": 21.0035},
+              {"name": "Dworzec Centralny", "lat": 52.2300, "lon": 21.0100}]
+    assert white_spots(searches, points)[0]["near"] == "Aleje Jerozolimskie 54"
+
+
 def test_cells_where_most_searches_succeed_are_not_white_spots():
     searches = [{"lat_r": 50.061, "lon_r": 19.937, "found": 0}] + [{"lat_r": 50.061, "lon_r": 19.937, "found": 1}] * 4
     assert white_spots(searches, [{"name": "Rynek", "lat": 50.0617, "lon": 19.9373}]) == []

@@ -10,17 +10,27 @@ EventSource = Literal["qr", "geo", "steward", "partner"]
 Access = Literal["open", "ask_staff", "students_only"]
 
 
+# ---------- cities ----------
+
+class CityInfo(BaseModel):
+    id: str
+    name: str
+    lat: float
+    lon: float
+
+
 # ---------- points ----------
 
 class Point(BaseModel):
     id: str
     name: str
+    city: str
     kind: str
     lat: float
     lon: float
     address: str | None
     access: Access
-    entry_fee_pln: float
+    entry_fee_pln: float | None    # None = fee unknown
     opening_hours: dict
     open_now: bool
     wheelchair: bool
@@ -149,7 +159,7 @@ class BoxStats(BaseModel):
 
 
 class CityStats(BaseModel):
-    city: str
+    city: str                               # city id, e.g. "krakow"
     days: int
     generated_at: str
     has_demo_data: bool
@@ -184,7 +194,7 @@ class UrgentPlace(BaseModel):
     minutes_since_confirmed: int | None
     distance_m: int
     walking_min: float
-    entry_fee_pln: float
+    entry_fee_pln: float | None
     access: Access
     open_now: bool
     open_24_7: bool
@@ -192,6 +202,7 @@ class UrgentPlace(BaseModel):
 
 
 class UrgentOut(BaseModel):
+    city: str                        # the city the search ran in (detected from the location)
     found: bool                      # a fresh, in-stock, open point within 10 minutes' walk
     night: bool                      # 22:00-06:00 Warsaw: 24/7 places ranked first
     best: UrgentPlace | None         # may be further than 10 min when found is false

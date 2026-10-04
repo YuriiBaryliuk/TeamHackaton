@@ -23,6 +23,8 @@ from datetime import datetime, timedelta
 
 from app.db import connect, init_db, to_iso, utc_now
 from app.urgent import TZ, is_open
+from app.cities import CITIES
+from scripts import demo_cities
 
 SEED = 42
 DAYS = 30
@@ -135,9 +137,9 @@ def stage_box_events(now: datetime, rng: random.Random) -> list[tuple]:
     ]
 
 
-def urgent_rows(now: datetime, rng: random.Random) -> list[tuple]:
+def urgent_rows(now: datetime, rng: random.Random, clusters: list = SEARCH_CLUSTERS) -> list[tuple]:
     rows = []
-    for lat, lon, n, p_found in SEARCH_CLUSTERS:
+    for lat, lon, n, p_found in clusters:
         for _ in range(n):
             t = next_active(now - timedelta(days=rng.uniform(0, DAYS)), {"always": True})
             if t > now:
@@ -160,7 +162,8 @@ def main() -> int:
     init_db(conn)
 
     points = {r["id"]: dict(r) for r in conn.execute("SELECT * FROM points WHERE is_demo = 1")}
-    missing = [pid for pid in [*PROFILES, "krk-demo"] if pid not in points]
+    other_profiles = demo_cities.profiles()
+    missing = [pid for pid in [*PROFILES, *other_profiles, "krk-demo"] if pid not in points]
     if missing:
         print(f"Missing demo points {missing}. Run `python -m scripts.seed_points` first.")
         return 1
@@ -173,6 +176,16 @@ def main() -> int:
     events += stage_box_events(now, rng)
     searches = urgent_rows(now, rng)
 
+    # Other cities: their own random stream, so Kraków's demo data stays exactly the same.
+    for city, city_points in demo_cities.DEMO_POINTS.items():
+        crng = random.Random(f"{SEED}-{city}")
+        for p in city_points:
+            events += simulate_box(points[p[0]], other_profiles[p[0]], now, crng)
+        for pid in demo_cities.REFILL_RECENTLY:
+            if pid.startswith(CITIES[city]["prefix"] + "-"):
+                refill_recently(events, pid, now, crng)
+        searches += urgent_rows(now, crng, demo_cities.SEARCH_CLUSTERS[city])
+
     with conn:  # one transaction: all or nothing
         conn.execute("DELETE FROM events WHERE is_demo = 1")
         conn.execute("DELETE FROM urgent_searches WHERE is_demo = 1")
@@ -184,7 +197,7 @@ def main() -> int:
             searches)
 
     white = sum(1 for s in searches if s[2] == 0)
-    print(f"Demo events: {len(events)} for {len(PROFILES) + 1} boxes over {DAYS} days.")
+    print(f"Demo events: {len(events)} for {len(PROFILES) + len(other_profiles) + 1} boxes over {DAYS} days, all cities.")
     print(f"Demo Urgent searches: {len(searches)} ({white} found nothing nearby = white spots).")
     print("All rows are marked is_demo=1.")
     return 0

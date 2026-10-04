@@ -1,0 +1,3920 @@
+[
+{
+"type": "node",
+"id": 442256675,
+"lat": 54.360913,
+"lon": 18.711938,
+"tags": {
+"addr:housenumber": "27",
+"addr:street": "Wilhelma Stryjewskiego",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 442257163,
+"lat": 54.361227,
+"lon": 18.714752,
+"tags": {
+"addr:housenumber": "29C",
+"addr:street": "Wilhelma Stryjewskiego",
+"amenity": "pharmacy",
+"name": "Dom Leków",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 471843083,
+"lat": 54.34558,
+"lon": 18.649335,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Kocurki",
+"amenity": "pharmacy",
+"name": "Eljax"
+}
+},
+{
+"type": "node",
+"id": 746496114,
+"lat": 54.349049,
+"lon": 18.651741,
+"tags": {
+"addr:housenumber": "54/55",
+"addr:street": "Długa",
+"amenity": "pharmacy",
+"name": "Ratuszowa",
+"wheelchair": "limited"
+}
+},
+{
+"type": "node",
+"id": 748345991,
+"lat": 54.348719,
+"lon": 18.619787,
+"tags": {
+"addr:housenumber": "114",
+"addr:street": "Kartuska",
+"amenity": "pharmacy",
+"name": "Kartuska",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 876380540,
+"lat": 54.376901,
+"lon": 18.60759,
+"tags": {
+"addr:housenumber": "82",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"name": "Manhattan",
+"opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 939080160,
+"lat": 54.324877,
+"lon": 18.611664,
+"tags": {
+"addr:housenumber": "2E",
+"addr:street": "Generała Leopolda Okulickiego",
+"amenity": "pharmacy",
+"name": "Sanitas"
+}
+},
+{
+"type": "node",
+"id": 1015333598,
+"lat": 54.380963,
+"lon": 18.614673,
+"tags": {
+"addr:housenumber": "4A",
+"addr:street": "Danusi",
+"amenity": "pharmacy",
+"name": "Przy Rynku"
+}
+},
+{
+"type": "node",
+"id": 1458087315,
+"lat": 54.355238,
+"lon": 18.606549,
+"tags": {
+"addr:housenumber": "4",
+"addr:street": "Otwarta",
+"amenity": "pharmacy",
+"name": "Po Zdrowie",
+"opening_hours": "Mo-Fr 08:00-19:00"
+}
+},
+{
+"type": "node",
+"id": 1515856046,
+"lat": 54.365016,
+"lon": 18.635344,
+"tags": {
+"addr:housenumber": "49",
+"addr:street": "Aleja Zwycięstwa",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 07:30-14:00"
+}
+},
+{
+"type": "node",
+"id": 1538112315,
+"lat": 54.418291,
+"lon": 18.566436,
+"tags": {
+"addr:housenumber": "34",
+"addr:street": "Bitwy Oliwskiej",
+"amenity": "pharmacy",
+"name": "Avena",
+"opening_hours": "Mo-Fr 08:00-20:00, Sa 08:00-16:00"
+}
+},
+{
+"type": "node",
+"id": 1538859537,
+"lat": 54.403232,
+"lon": 18.588506,
+"tags": {
+"addr:housenumber": "32",
+"addr:street": "Kołobrzeska",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "24/7",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 1567964251,
+"lat": 54.348813,
+"lon": 18.656071,
+"tags": {
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"opening_hours": "09:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 1641456768,
+"lat": 54.351402,
+"lon": 18.636368,
+"tags": {
+"addr:housenumber": "5",
+"addr:street": "Kartuska",
+"amenity": "pharmacy",
+"brand": "Dom Leków",
+"name": "Dom Leków",
+"opening_hours": "24/7",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 1755971248,
+"lat": 54.326346,
+"lon": 18.622202,
+"tags": {
+"addr:housenumber": "16",
+"addr:street": "Krzemowa",
+"amenity": "pharmacy",
+"name": "Oruńska II",
+"opening_hours": "Mo-Fr 08:00-19:30; Sa 09:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 1755971319,
+"lat": 54.325268,
+"lon": 18.618053,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Krzemowa",
+"amenity": "pharmacy",
+"name": "Krzemowa",
+"opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-22:30; Su 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 1769069364,
+"lat": 54.359531,
+"lon": 18.583842,
+"tags": {
+"addr:housenumber": "26",
+"addr:street": "Piecewska",
+"amenity": "pharmacy",
+"name": "Prima",
+"opening_hours": "Mo-Sa 08:00-20:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 1769082976,
+"lat": 54.358466,
+"lon": 18.583072,
+"tags": {
+"addr:housenumber": "13",
+"addr:street": "Franciszka Rakoczego",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 8:00-20:00, Sa 8:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 1771326476,
+"lat": 54.373506,
+"lon": 18.730311,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "limited"
+}
+},
+{
+"type": "node",
+"id": 1774349557,
+"lat": 54.347676,
+"lon": 18.661817,
+"tags": {
+"addr:housenumber": "11C",
+"addr:street": "Długie Ogrody",
+"amenity": "pharmacy",
+"name": "DOZ Apteka"
+}
+},
+{
+"type": "node",
+"id": 1801441704,
+"lat": 54.411207,
+"lon": 18.558375,
+"tags": {
+"amenity": "toilets",
+"fee": "yes",
+"opening_hours": "Mo-Su 09:30-13:30",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 1899743142,
+"lat": 54.321794,
+"lon": 18.551386,
+"tags": {
+"addr:housenumber": "6",
+"addr:street": "Przywidzka",
+"amenity": "pharmacy",
+"name": "Viktoria"
+}
+},
+{
+"type": "node",
+"id": 1899743285,
+"lat": 54.321595,
+"lon": 18.550595,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 1901951180,
+"lat": 54.358387,
+"lon": 18.587723,
+"tags": {
+"addr:housenumber": "132",
+"addr:street": "Jaśkowa Dolina",
+"amenity": "pharmacy",
+"name": "Farmacja 24",
+"opening_hours": "Mo-Fr 06:00-20:00; Sa 10:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 1901984444,
+"lat": 54.358087,
+"lon": 18.583846,
+"tags": {
+"addr:housenumber": "15",
+"addr:street": "Franciszka Rakoczego",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 1907488745,
+"lat": 54.373809,
+"lon": 18.517302,
+"tags": {
+"addr:housenumber": "26",
+"addr:street": "Złota Karczma",
+"amenity": "toilets",
+"name": "IKEA",
+"opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 1910277880,
+"lat": 54.383118,
+"lon": 18.624223,
+"tags": {
+"addr:housenumber": "27A",
+"addr:street": "Adama Mickiewicza",
+"amenity": "pharmacy",
+"brand": "Dom Leków",
+"name": "Dom Leków",
+"opening_hours": "Mo-Fr 07:00-20:00; Sa 08:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 1938394284,
+"lat": 54.321272,
+"lon": 18.548952,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 1939704110,
+"lat": 54.34941,
+"lon": 18.681362,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 1939732219,
+"lat": 54.345387,
+"lon": 18.669105,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 2154524979,
+"lat": 54.349402,
+"lon": 18.647571,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 zl",
+"fee": "yes",
+"opening_hours": "24/7",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 2318706241,
+"lat": 54.327175,
+"lon": 18.595631,
+"tags": {
+"addr:housenumber": "5",
+"addr:street": "Płocka",
+"amenity": "pharmacy",
+"name": "Apteka Gemini",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-16:00; Su 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 2318724648,
+"lat": 54.330856,
+"lon": 18.58664,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Ostrołęcka",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie"
+}
+},
+{
+"type": "node",
+"id": 2360723890,
+"lat": 54.380862,
+"lon": 18.46806,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 2378268935,
+"lat": 54.330235,
+"lon": 18.607495,
+"tags": {
+"addr:housenumber": "23",
+"addr:street": "Wawelska",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-19:00"
+}
+},
+{
+"type": "node",
+"id": 2402208620,
+"lat": 54.366447,
+"lon": 18.627792,
+"tags": {
+"addr:housenumber": "5",
+"addr:street": "Marii Skłodowskiej-Curie",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-16:00"
+}
+},
+{
+"type": "node",
+"id": 2420611409,
+"lat": 54.406541,
+"lon": 18.634125,
+"tags": {
+"addr:housenumber": "13",
+"addr:street": "Konrada Korzeniowskiego",
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini",
+"opening_hours": "Mo-Fr 09:00-19:30; Sa 09:00-14:30"
+}
+},
+{
+"type": "node",
+"id": 2424575294,
+"lat": 54.377891,
+"lon": 18.605611,
+"tags": {
+"addr:housenumber": "100",
+"addr:street": "Partyzantów",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 2455128137,
+"lat": 54.416032,
+"lon": 18.557769,
+"tags": {
+"addr:housenumber": "14",
+"addr:street": "Józefa Czyżewskiego",
+"amenity": "pharmacy",
+"name": "Słowiańska",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 2602175697,
+"lat": 54.382979,
+"lon": 18.6162,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Adama Mickiewicza",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-15:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 2614888942,
+"lat": 54.418672,
+"lon": 18.478438,
+"tags": {
+"addr:housenumber": "98",
+"addr:street": "Junony",
+"amenity": "pharmacy",
+"name": "Farmacja24",
+"opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 2616576988,
+"lat": 54.42553,
+"lon": 18.473206,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Koziorożca",
+"amenity": "pharmacy",
+"name": "Rodzinna"
+}
+},
+{
+"type": "node",
+"id": 2622577085,
+"lat": 54.381794,
+"lon": 18.608532,
+"tags": {
+"addr:housenumber": "12",
+"addr:street": "Wajdeloty",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-17:00"
+}
+},
+{
+"type": "node",
+"id": 2632995598,
+"lat": 54.380542,
+"lon": 18.60469,
+"tags": {
+"addr:housenumber": "4A",
+"addr:street": "Klonowa",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 07:00-20:00; Sa 08:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 2670589781,
+"lat": 54.365526,
+"lon": 18.63755,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 2676684856,
+"lat": 54.355419,
+"lon": 18.683482,
+"tags": {
+"addr:housenumber": "20",
+"addr:street": "Kryniczna",
+"amenity": "pharmacy",
+"name": "Nad Wisłą",
+"opening_hours": "Mo-Fr 8:00-20:00; Sa 8:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 2684230501,
+"lat": 54.403192,
+"lon": 18.612328,
+"tags": {
+"addr:housenumber": "50",
+"addr:street": "Aleja Jana Pawła II",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max"
+}
+},
+{
+"type": "node",
+"id": 2685543689,
+"lat": 54.356449,
+"lon": 18.630046,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Jana Kozietulskiego",
+"amenity": "pharmacy",
+"name": "Tradycyjna"
+}
+},
+{
+"type": "node",
+"id": 2901475585,
+"lat": 54.339137,
+"lon": 18.565338,
+"tags": {
+"addr:housenumber": "1A",
+"addr:street": "Damroki",
+"amenity": "pharmacy",
+"name": "Damroki"
+}
+},
+{
+"type": "node",
+"id": 2913157190,
+"lat": 54.352089,
+"lon": 18.650131,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 2961962042,
+"lat": 54.360543,
+"lon": 18.590844,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Zofii Nałkowskiej",
+"amenity": "pharmacy",
+"name": "Med",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-14:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 2969078086,
+"lat": 54.374831,
+"lon": 18.611858,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Jana Matejki",
+"amenity": "pharmacy",
+"name": "Recepturowa"
+}
+},
+{
+"type": "node",
+"id": 3027113886,
+"lat": 54.381849,
+"lon": 18.467148,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 3029441634,
+"lat": 54.358634,
+"lon": 18.626991,
+"tags": {
+"addr:housenumber": "8/7",
+"addr:street": "Marszałka Ferdynanda Focha",
+"amenity": "pharmacy",
+"name": "Słoneczna",
+"opening_hours": "Mo-Fr 09:00-20:00;Sa 09:00-14:00;Su off"
+}
+},
+{
+"type": "node",
+"id": 3145251851,
+"lat": 54.378181,
+"lon": 18.608035,
+"tags": {
+"addr:housenumber": "83",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-15:00; Su off"
+}
+},
+{
+"type": "node",
+"id": 3159978623,
+"lat": 54.366256,
+"lon": 18.628504,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Marii Skłodowskiej-Curie",
+"amenity": "pharmacy",
+"name": "Przy Akademii",
+"opening_hours": "Mo-Fr 07:00-19:00; Sa 09:00-16:00; Su 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 3621546805,
+"lat": 54.350152,
+"lon": 18.629209,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Generała Józefa Sowińskiego",
+"amenity": "pharmacy",
+"name": "Antidotum",
+"opening_hours": "Mo-Fr 08:30-19:00; Sa 09:00-14:00; Su off"
+}
+},
+{
+"type": "node",
+"id": 3673913181,
+"lat": 54.341305,
+"lon": 18.616784,
+"tags": {
+"addr:housenumber": "15D",
+"addr:street": "Marcina Dragana",
+"amenity": "pharmacy",
+"name": "Polska"
+}
+},
+{
+"type": "node",
+"id": 3673913188,
+"lat": 54.340101,
+"lon": 18.618909,
+"tags": {
+"addr:housenumber": "29",
+"addr:street": "Tytusa Chałubińskiego",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie"
+}
+},
+{
+"type": "node",
+"id": 3842670296,
+"lat": 54.351472,
+"lon": 18.651917,
+"tags": {
+"addr:housenumber": "21",
+"addr:street": "Szeroka",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-16:00"
+}
+},
+{
+"type": "node",
+"id": 3882087192,
+"lat": 54.356145,
+"lon": 18.613569,
+"tags": {
+"addr:housenumber": "22A",
+"addr:street": "Ludwika Beethovena",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 07:45-20:00; Sa 08:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 4012266709,
+"lat": 54.380614,
+"lon": 18.599594,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Jesionowa",
+"amenity": "pharmacy",
+"name": "Jesionowa",
+"opening_hours": "Mo-Fr 09:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 4116162991,
+"lat": 54.325548,
+"lon": 18.606355,
+"tags": {
+"addr:housenumber": "137D",
+"addr:street": "Królowej Jadwigi",
+"amenity": "pharmacy",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 4346611238,
+"lat": 54.35649,
+"lon": 18.648474,
+"tags": {
+"addr:housenumber": "10",
+"addr:street": "Rajska",
+"amenity": "pharmacy",
+"name": "Rajska"
+}
+},
+{
+"type": "node",
+"id": 4346611273,
+"lat": 54.357212,
+"lon": 18.651508,
+"tags": {
+"addr:housenumber": "52",
+"addr:street": "Łagiewniki",
+"amenity": "pharmacy",
+"name": "Aksamitna",
+"opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-20:00; Su 09:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 4354113746,
+"lat": 54.410292,
+"lon": 18.538835,
+"tags": {
+"access": "customers",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4372108711,
+"lat": 54.402238,
+"lon": 18.574435,
+"tags": {
+"addr:housenumber": "471",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"name": "Farmacja 24",
+"opening_hours": "Mo-Fr 08:00-21:00; Sa 08:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 4387235758,
+"lat": 54.402628,
+"lon": 18.570379,
+"tags": {
+"addr:housenumber": "472A",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"name": "Medicover",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 4398981478,
+"lat": 54.420678,
+"lon": 18.583303,
+"tags": {
+"addr:housenumber": "3A",
+"addr:street": "Gospody",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00; Su 09:00-15:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4398981479,
+"lat": 54.420963,
+"lon": 18.584101,
+"tags": {
+"addr:housenumber": "3B",
+"addr:street": "Gospody",
+"amenity": "pharmacy",
+"name": "Natura",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-16:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4439544579,
+"lat": 54.352084,
+"lon": 18.524781,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 4450063691,
+"lat": 54.408728,
+"lon": 18.638731,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 4453037005,
+"lat": 54.346928,
+"lon": 18.509861,
+"tags": {
+"addr:housenumber": "15C",
+"addr:street": "Otomińska",
+"amenity": "pharmacy",
+"name": "Bałtycka",
+"opening_hours": "Mo-Fr 07:30-19:00"
+}
+},
+{
+"type": "node",
+"id": 4453037006,
+"lat": 54.352422,
+"lon": 18.512902,
+"tags": {
+"addr:housenumber": "11",
+"addr:street": "Kalinowa",
+"amenity": "pharmacy",
+"name": "Bałtycka",
+"opening_hours": "Mo-Fr 07:00-21:00; Sa 08:00-19:00; Su 10:00-16:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4460747315,
+"lat": 54.351389,
+"lon": 18.524603,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 4460747319,
+"lat": 54.351273,
+"lon": 18.523951,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Szczęśliwa",
+"amenity": "pharmacy",
+"name": "Dla Ciebie",
+"opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 4463516876,
+"lat": 54.382463,
+"lon": 18.605841,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4463516878,
+"lat": 54.382535,
+"lon": 18.605759,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4463516879,
+"lat": 54.382709,
+"lon": 18.604346,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4463516883,
+"lat": 54.382979,
+"lon": 18.604827,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4463516887,
+"lat": 54.383071,
+"lon": 18.604739,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4463516888,
+"lat": 54.383156,
+"lon": 18.605671,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4463517289,
+"lat": 54.383226,
+"lon": 18.605674,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4463517290,
+"lat": 54.383237,
+"lon": 18.605725,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4463517291,
+"lat": 54.383246,
+"lon": 18.605796,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 4489338990,
+"lat": 54.399884,
+"lon": 18.660785,
+"tags": {
+"addr:housenumber": "29",
+"addr:street": "Wyzwolenia",
+"amenity": "pharmacy",
+"name": "Puls Farm"
+}
+},
+{
+"type": "node",
+"id": 4745686836,
+"lat": 54.351672,
+"lon": 18.653856,
+"tags": {
+"amenity": "toilets",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 4809194755,
+"lat": 54.33826,
+"lon": 18.626395,
+"tags": {
+"addr:housenumber": "44",
+"addr:street": "Stanisława Worcella",
+"amenity": "pharmacy",
+"name": "Cosmedica"
+}
+},
+{
+"type": "node",
+"id": 4815349072,
+"lat": 54.409335,
+"lon": 18.599095,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Obrońców Wybrzeża",
+"amenity": "pharmacy",
+"name": "Apteka na Obrońców Wybrzeża 2",
+"opening_hours": "24/7"
+}
+},
+{
+"type": "node",
+"id": 5025054869,
+"lat": 54.389683,
+"lon": 18.609884,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 5046462947,
+"lat": 54.326943,
+"lon": 18.631623,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Diamentowa",
+"amenity": "pharmacy",
+"name": "Diamentowa"
+}
+},
+{
+"type": "node",
+"id": 5046462948,
+"lat": 54.322778,
+"lon": 18.631761,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Gościnna",
+"amenity": "pharmacy",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 5077729936,
+"lat": 54.352596,
+"lon": 18.648758,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Targ Drzewny",
+"amenity": "pharmacy",
+"name": "Gemini",
+"opening_hours": "Mo-Fr 07:00-20:00; Sa-Su 09:00-18:00; PH off"
+}
+},
+{
+"type": "node",
+"id": 5086972162,
+"lat": 54.359328,
+"lon": 18.577786,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Józefa Żylewicza",
+"amenity": "pharmacy",
+"name": "Cosmedica",
+"opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 5147853137,
+"lat": 54.402164,
+"lon": 18.574654,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 5221225781,
+"lat": 54.355431,
+"lon": 18.646842,
+"tags": {
+"addr:housenumber": "8",
+"addr:street": "Podwale Grodzkie",
+"amenity": "pharmacy",
+"name": "Grodzieńska",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-16:00; Su 10:00-17:00; PH off"
+}
+},
+{
+"type": "node",
+"id": 5315181193,
+"lat": 54.425904,
+"lon": 18.471221,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Biwakowa",
+"amenity": "pharmacy",
+"name": "Apteki Dla Was"
+}
+},
+{
+"type": "node",
+"id": 5665806251,
+"lat": 54.349835,
+"lon": 18.643237,
+"tags": {
+"amenity": "pharmacy",
+"brand": "Super-Pharm",
+"name": "Super-Pharm"
+}
+},
+{
+"type": "node",
+"id": 5715743760,
+"lat": 54.382107,
+"lon": 18.465314,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 5715744215,
+"lat": 54.381629,
+"lon": 18.466829,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 5793612159,
+"lat": 54.344831,
+"lon": 18.872239,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 5799711604,
+"lat": 54.363952,
+"lon": 18.645251,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 5824906956,
+"lat": 54.321789,
+"lon": 18.605127,
+"tags": {
+"addr:housenumber": "21",
+"addr:street": "Świętokrzyska",
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 5922158835,
+"lat": 54.356371,
+"lon": 18.782246,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6048462927,
+"lat": 54.363165,
+"lon": 18.669682,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 6051754754,
+"lat": 54.420952,
+"lon": 18.571917,
+"tags": {
+"addr:housenumber": "30",
+"addr:street": "Subisława",
+"amenity": "pharmacy",
+"name": "Gemini",
+"opening_hours": "Mo-Fr 07:00-20:00; Sa 08:00-18:00; Su 09:00-15:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 6206261504,
+"lat": 54.38156,
+"lon": 18.467017,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6206261505,
+"lat": 54.381503,
+"lon": 18.467254,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6251051511,
+"lat": 54.402981,
+"lon": 18.610034,
+"tags": {
+"addr:housenumber": "20",
+"addr:street": "Janusza Meissnera",
+"amenity": "pharmacy",
+"name": "Dom Leków"
+}
+},
+{
+"type": "node",
+"id": 6258079039,
+"lat": 54.390249,
+"lon": 18.593076,
+"tags": {
+"addr:housenumber": "65",
+"addr:street": "Franciszka Hynka",
+"amenity": "pharmacy",
+"name": "Cosmedica",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 6328736708,
+"lat": 54.351265,
+"lon": 18.634439,
+"tags": {
+"addr:housenumber": "17",
+"addr:street": "Kartuska",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-16:00"
+}
+},
+{
+"type": "node",
+"id": 6341075496,
+"lat": 54.311313,
+"lon": 18.597362,
+"tags": {
+"addr:housenumber": "32",
+"addr:street": "Niepołomicka",
+"amenity": "pharmacy",
+"name": "Bałtycka"
+}
+},
+{
+"type": "node",
+"id": 6381951271,
+"lat": 54.389317,
+"lon": 18.568921,
+"tags": {
+"addr:housenumber": "28",
+"addr:street": "Piotra Norblina",
+"amenity": "pharmacy",
+"name": "VII Dwór",
+"opening_hours": "Mo-Fr 10:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 6423607099,
+"lat": 54.38057,
+"lon": 18.469026,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6426151444,
+"lat": 54.355672,
+"lon": 18.614274,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Zygmunta Noskowskiego",
+"amenity": "pharmacy",
+"name": "Dom Leków",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-16:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 6426799815,
+"lat": 54.354785,
+"lon": 18.645941,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Karmelicka",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 6426799816,
+"lat": 54.359028,
+"lon": 18.654317,
+"tags": {
+"addr:housenumber": "27a",
+"addr:street": "Wałowa",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 07:30-19:00; Sa 08:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 6467030985,
+"lat": 54.411046,
+"lon": 18.612912,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6516165785,
+"lat": 54.348183,
+"lon": 18.606546,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6575429953,
+"lat": 54.351875,
+"lon": 18.594241,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 6575429971,
+"lat": 54.352495,
+"lon": 18.593955,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 6575454394,
+"lat": 54.352458,
+"lon": 18.593032,
+"tags": {
+"addr:housenumber": "102A",
+"addr:street": "Franciszka Schuberta",
+"amenity": "pharmacy",
+"name": "Mini"
+}
+},
+{
+"type": "node",
+"id": 6575454412,
+"lat": 54.351799,
+"lon": 18.594345,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 6575474938,
+"lat": 54.355181,
+"lon": 18.593647,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Trzy Lipy",
+"amenity": "pharmacy",
+"name": "Gemini",
+"opening_hours": "24/7"
+}
+},
+{
+"type": "node",
+"id": 6635287987,
+"lat": 54.34902,
+"lon": 18.658046,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 6798213456,
+"lat": 54.376211,
+"lon": 18.612409,
+"tags": {
+"addr:housenumber": "52",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"name": "Calamus",
+"opening_hours": "Mo-Fr 08:00-22:00; Sa 09:00-19:00"
+}
+},
+{
+"type": "node",
+"id": 7074467667,
+"lat": 54.353769,
+"lon": 18.607152,
+"tags": {
+"addr:housenumber": "9",
+"addr:street": "Ignacego Paderewskiego",
+"amenity": "pharmacy",
+"name": "Cosmedica",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-16:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 7156137385,
+"lat": 54.343995,
+"lon": 18.648641,
+"tags": {
+"addr:housenumber": "10",
+"addr:street": "Żabi Kruk",
+"amenity": "pharmacy",
+"name": "Cosmedica",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-17:00"
+}
+},
+{
+"type": "node",
+"id": 7218831971,
+"lat": 54.376611,
+"lon": 18.611225,
+"tags": {
+"addr:housenumber": "60",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-15:00; Su off"
+}
+},
+{
+"type": "node",
+"id": 7222921990,
+"lat": 54.389647,
+"lon": 18.603314,
+"tags": {
+"addr:housenumber": "23",
+"addr:street": "Dywizjonu 303",
+"amenity": "pharmacy",
+"name": "Vena",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 7358126028,
+"lat": 54.380567,
+"lon": 18.469048,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 7717661622,
+"lat": 54.368797,
+"lon": 18.616482,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 8004097229,
+"lat": 54.393013,
+"lon": 18.610301,
+"tags": {
+"addr:housenumber": "12",
+"addr:street": "Żwirki i Wigury",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-13:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 8032794352,
+"lat": 54.389832,
+"lon": 18.609269,
+"tags": {
+"addr:housenumber": "33",
+"addr:street": "Aleja Rzeczypospolitej",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-19:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 8037675699,
+"lat": 54.391089,
+"lon": 18.609915,
+"tags": {
+"addr:housenumber": "6",
+"addr:street": "Żwirki i Wigury",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa 09:00-15:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 8037675703,
+"lat": 54.391579,
+"lon": 18.609833,
+"tags": {
+"addr:housenumber": "8",
+"addr:street": "Żwirki i Wigury",
+"amenity": "pharmacy",
+"name": "Gemini",
+"opening_hours": "Mo-Fr 07:00-20:00; Sa 09:00-18:00; Su 09:00-15:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 8423500500,
+"lat": 54.412911,
+"lon": 18.592918,
+"tags": {
+"addr:housenumber": "4",
+"addr:street": "Jagiellońska",
+"amenity": "pharmacy",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 8423500515,
+"lat": 54.40549,
+"lon": 18.599125,
+"tags": {
+"addr:housenumber": "63F",
+"addr:street": "Kołobrzeska",
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 8454013916,
+"lat": 54.427981,
+"lon": 18.594163,
+"tags": {
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 8454022035,
+"lat": 54.429347,
+"lon": 18.591932,
+"tags": {
+"amenity": "toilets",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 8806197748,
+"lat": 54.352597,
+"lon": 18.646392,
+"tags": {
+"addr:housenumber": "28/30",
+"addr:street": "Wały Jagiellońskie",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa,Su 08:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 8810051769,
+"lat": 54.403182,
+"lon": 18.587668,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 8884268949,
+"lat": 54.347527,
+"lon": 18.661016,
+"tags": {
+"addr:housenumber": "11",
+"addr:street": "Szafarnia",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-17:00; Su 10:00-16:00"
+}
+},
+{
+"type": "node",
+"id": 8914401851,
+"lat": 54.358066,
+"lon": 18.580898,
+"tags": {
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini",
+"opening_hours": "Mo-Fr 07:00-21:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 8982967056,
+"lat": 54.364911,
+"lon": 18.64504,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 9410617003,
+"lat": 54.383821,
+"lon": 18.588511,
+"tags": {
+"addr:housenumber": "14",
+"addr:street": "Karola Szymanowskiego",
+"amenity": "pharmacy",
+"name": "Szymanowskiego",
+"opening_hours": "Mo-Fr 08:30-19:30; Sa 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 9425689927,
+"lat": 54.426785,
+"lon": 18.490703,
+"tags": {
+"amenity": "pharmacy",
+"name": "Multi Pharm",
+"opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 9569805860,
+"lat": 54.409945,
+"lon": 18.598521,
+"tags": {
+"addr:housenumber": "17",
+"addr:street": "Obrońców Wybrzeża",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-18:00; Su 10:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 9569805861,
+"lat": 54.412293,
+"lon": 18.586704,
+"tags": {
+"addr:housenumber": "24",
+"addr:street": "Czerwony Dwór",
+"amenity": "pharmacy",
+"name": "Cosmedica"
+}
+},
+{
+"type": "node",
+"id": 9569805862,
+"lat": 54.408742,
+"lon": 18.567725,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Kaprów",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max"
+}
+},
+{
+"type": "node",
+"id": 9569805864,
+"lat": 54.416627,
+"lon": 18.590513,
+"tags": {
+"addr:housenumber": "90E",
+"addr:street": "Piastowska",
+"amenity": "pharmacy",
+"name": "Słowiańska"
+}
+},
+{
+"type": "node",
+"id": 9569805865,
+"lat": 54.40683,
+"lon": 18.55985,
+"tags": {
+"addr:housenumber": "7",
+"addr:street": "Polanki",
+"amenity": "pharmacy",
+"name": "Apteki Dla Was",
+"opening_hours": "Mo-Sa 07:00-19:00"
+}
+},
+{
+"type": "node",
+"id": 9569805867,
+"lat": 54.432056,
+"lon": 18.470975,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Wacława Balcerskiego",
+"amenity": "pharmacy",
+"name": "Rodzinna"
+}
+},
+{
+"type": "node",
+"id": 9569805868,
+"lat": 54.421348,
+"lon": 18.584046,
+"tags": {
+"addr:housenumber": "25",
+"addr:street": "Jakuba Wejhera",
+"amenity": "pharmacy",
+"name": "Polska",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-14:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 9569805869,
+"lat": 54.420843,
+"lon": 18.577582,
+"tags": {
+"addr:housenumber": "3A",
+"addr:street": "Gdyńska",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa 09:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 9569805872,
+"lat": 54.423062,
+"lon": 18.58005,
+"tags": {
+"addr:housenumber": "19A",
+"addr:street": "Gospody",
+"amenity": "pharmacy"
+}
+},
+{
+"type": "node",
+"id": 9569805873,
+"lat": 54.409079,
+"lon": 18.587098,
+"tags": {
+"addr:housenumber": "40",
+"addr:street": "Generała Bora-Komorowskiego",
+"amenity": "pharmacy",
+"name": "Medicur",
+"opening_hours": "Mo-Fr 09:00-20:00; Sa 10:00-15:00; PH off",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 9571518110,
+"lat": 54.40406,
+"lon": 18.601121,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Opolska",
+"amenity": "pharmacy",
+"brand": "Dom Leków",
+"name": "Dom Leków",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 9571518111,
+"lat": 54.39277,
+"lon": 18.596411,
+"tags": {
+"addr:housenumber": "3",
+"addr:street": "Pilotów",
+"amenity": "pharmacy",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 9571518114,
+"lat": 54.40528,
+"lon": 18.606641,
+"tags": {
+"addr:housenumber": "3C",
+"addr:street": "Olsztyńska",
+"amenity": "pharmacy",
+"name": "Trzy Żagle"
+}
+},
+{
+"type": "node",
+"id": 9571518116,
+"lat": 54.391633,
+"lon": 18.599609,
+"tags": {
+"addr:housenumber": "6D",
+"addr:street": "Aleja Jana Pawła II",
+"amenity": "pharmacy",
+"name": "Polska",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-14:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 9571599317,
+"lat": 54.398993,
+"lon": 18.607713,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Zbigniewa Burzyńskiego",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie"
+}
+},
+{
+"type": "node",
+"id": 9571599318,
+"lat": 54.393214,
+"lon": 18.598114,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Startowa",
+"amenity": "pharmacy",
+"name": "Startowa"
+}
+},
+{
+"type": "node",
+"id": 9571599319,
+"lat": 54.387855,
+"lon": 18.589612,
+"tags": {
+"addr:housenumber": "212",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"name": "Od Serca"
+}
+},
+{
+"type": "node",
+"id": 9571599321,
+"lat": 54.404821,
+"lon": 18.599755,
+"tags": {
+"addr:housenumber": "46",
+"addr:street": "Kołobrzeska",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie",
+"opening_hours": "Mo-Fr 07:30-19:30; Sa 08:00-14:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 9571599322,
+"lat": 54.386476,
+"lon": 18.583088,
+"tags": {
+"addr:housenumber": "10A",
+"addr:street": "Księdza Bernarda Sychty",
+"amenity": "pharmacy",
+"name": "Osiedlowa"
+}
+},
+{
+"type": "node",
+"id": 9571599323,
+"lat": 54.402925,
+"lon": 18.581415,
+"tags": {
+"addr:housenumber": "23",
+"addr:street": "Szczecińska",
+"amenity": "pharmacy",
+"name": "Apteka \"Gdańska\"",
+"opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-14:00; Su off; PH off"
+}
+},
+{
+"type": "node",
+"id": 9571599324,
+"lat": 54.386434,
+"lon": 18.605901,
+"tags": {
+"addr:housenumber": "12",
+"addr:street": "Tadeusza Kościuszki",
+"amenity": "pharmacy",
+"name": "Sana",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 9571689857,
+"lat": 54.33681,
+"lon": 18.613463,
+"tags": {
+"addr:housenumber": "48",
+"addr:street": "Władysława Cieszyńskiego",
+"amenity": "pharmacy",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 9571689858,
+"lat": 54.328487,
+"lon": 18.582983,
+"tags": {
+"addr:housenumber": "25",
+"addr:street": "Piotrkowska",
+"amenity": "pharmacy",
+"name": "4 Pory Roku"
+}
+},
+{
+"type": "node",
+"id": 9571689859,
+"lat": 54.332168,
+"lon": 18.583258,
+"tags": {
+"addr:housenumber": "69",
+"addr:street": "Warszawska",
+"amenity": "pharmacy",
+"name": "Wracam Do Zdrowia"
+}
+},
+{
+"type": "node",
+"id": 9571689860,
+"lat": 54.330074,
+"lon": 18.605442,
+"tags": {
+"addr:housenumber": "10",
+"addr:street": "Nieborowska",
+"amenity": "pharmacy",
+"name": "Cosmedica",
+"opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-20:00; Su 10:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 9571689861,
+"lat": 54.330507,
+"lon": 18.556962,
+"tags": {
+"addr:housenumber": "29A",
+"addr:street": "Jabłoniowa",
+"amenity": "pharmacy",
+"name": "Jabłoniowa",
+"opening_hours": "Sa 09:00-17:00; Mo-Fr 08:00-21:00"
+}
+},
+{
+"type": "node",
+"id": 9571689862,
+"lat": 54.350826,
+"lon": 18.562372,
+"tags": {
+"addr:housenumber": "72",
+"addr:street": "Myśliwska",
+"amenity": "pharmacy",
+"name": "Bałtycka",
+"opening_hours": "Mo-Fr 08:00-21:00; Sa 08:00-19:00"
+}
+},
+{
+"type": "node",
+"id": 9571689863,
+"lat": 54.325966,
+"lon": 18.606641,
+"tags": {
+"addr:housenumber": "4",
+"addr:street": "Świętokrzyska",
+"amenity": "pharmacy",
+"name": "Apteki Dla Was"
+}
+},
+{
+"type": "node",
+"id": 9571793723,
+"lat": 54.378437,
+"lon": 18.605582,
+"tags": {
+"addr:housenumber": "102",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini",
+"opening_hours": "Mo-Fr 07:00-18:00; Sa 09:00-18:00; Su 09:00-15:00; PH off",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 9571793724,
+"lat": 54.378509,
+"lon": 18.605408,
+"tags": {
+"addr:housenumber": "104",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "24/7",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 9571793726,
+"lat": 54.358287,
+"lon": 18.586144,
+"tags": {
+"addr:housenumber": "105",
+"addr:street": "Jaśkowa Dolina",
+"amenity": "pharmacy",
+"name": "Bratek"
+}
+},
+{
+"type": "node",
+"id": 9576392803,
+"lat": 54.356576,
+"lon": 18.682085,
+"tags": {
+"addr:housenumber": "9",
+"addr:street": "Siennicka",
+"amenity": "pharmacy",
+"name": "Pinus-Pharm"
+}
+},
+{
+"type": "node",
+"id": 9576392804,
+"lat": 54.337475,
+"lon": 18.612576,
+"tags": {
+"addr:housenumber": "1A",
+"addr:street": "Władysława Cieszyńskiego",
+"amenity": "pharmacy",
+"name": "Dom Leków",
+"opening_hours": "Mo-Su 07:00-22:00"
+}
+},
+{
+"type": "node",
+"id": 9576392806,
+"lat": 54.406732,
+"lon": 18.639925,
+"tags": {
+"addr:housenumber": "4",
+"addr:street": "Konstantego Ildefonsa Gałczyńskiego",
+"amenity": "pharmacy",
+"name": "Polska"
+}
+},
+{
+"type": "node",
+"id": 9576392807,
+"lat": 54.356994,
+"lon": 18.651733,
+"tags": {
+"addr:housenumber": "48",
+"addr:street": "Łagiewniki",
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini",
+"opening_hours": "Mo-Su 07:30-20:00; Sa 09:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 9576392809,
+"lat": 54.406509,
+"lon": 18.638902,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Konstantego Ildefonsa Gałczyńskiego",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie"
+}
+},
+{
+"type": "node",
+"id": 9576392810,
+"lat": 54.401272,
+"lon": 18.662075,
+"tags": {
+"addr:housenumber": "21B",
+"addr:street": "Wolności",
+"amenity": "pharmacy",
+"name": "Przy Falowcu"
+}
+},
+{
+"type": "node",
+"id": 9576392812,
+"lat": 54.352241,
+"lon": 18.651107,
+"tags": {
+"addr:housenumber": "6",
+"addr:street": "Pańska",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "08:00-21:00",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 9576392813,
+"lat": 54.360962,
+"lon": 18.714042,
+"tags": {
+"addr:housenumber": "29B",
+"addr:street": "Wilhelma Stryjewskiego",
+"amenity": "pharmacy",
+"name": "Elżbietańska"
+}
+},
+{
+"type": "node",
+"id": 9576392814,
+"lat": 54.40176,
+"lon": 18.670738,
+"tags": {
+"addr:housenumber": "62",
+"addr:street": "Oliwska",
+"amenity": "pharmacy",
+"name": "Westerplatte"
+}
+},
+{
+"type": "node",
+"id": 9576392815,
+"lat": 54.356892,
+"lon": 18.684163,
+"tags": {
+"addr:housenumber": "4A",
+"addr:street": "Teofila Lenartowicza",
+"amenity": "pharmacy",
+"brand": "Dbam o Zdrowie",
+"name": "Dbam o Zdrowie"
+}
+},
+{
+"type": "node",
+"id": 9576418317,
+"lat": 54.33693,
+"lon": 18.612455,
+"tags": {
+"addr:housenumber": "38",
+"addr:street": "Władysława Cieszyńskiego",
+"amenity": "pharmacy",
+"name": "Orlik"
+}
+},
+{
+"type": "node",
+"id": 9576418318,
+"lat": 54.342775,
+"lon": 18.660471,
+"tags": {
+"addr:housenumber": "16",
+"addr:street": "Jaskółcza",
+"amenity": "pharmacy",
+"name": "Apteka Gemini",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 9576418319,
+"lat": 54.360506,
+"lon": 18.712132,
+"tags": {
+"addr:housenumber": "12",
+"addr:street": "Hoża",
+"amenity": "pharmacy",
+"name": "Na Stogach",
+"opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 9576422588,
+"lat": 54.395274,
+"lon": 18.643231,
+"tags": {
+"addr:housenumber": "37A",
+"addr:street": "Sucha",
+"amenity": "pharmacy",
+"name": "Przystanek Apteka"
+}
+},
+{
+"type": "node",
+"id": 9576422589,
+"lat": 54.342996,
+"lon": 18.829208,
+"tags": {
+"addr:housenumber": "2",
+"addr:street": "Kolonijna",
+"amenity": "pharmacy",
+"name": "Na Wyspie"
+}
+},
+{
+"type": "node",
+"id": 9770239615,
+"lat": 54.40968,
+"lon": 18.593059,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Obrońców Wybrzeża",
+"amenity": "pharmacy",
+"name": "Źródło Zdrowia",
+"opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 9820595282,
+"lat": 54.357313,
+"lon": 18.660175,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 9880724629,
+"lat": 54.395838,
+"lon": 18.642866,
+"tags": {
+"addr:housenumber": "37B",
+"addr:street": "Sucha",
+"amenity": "pharmacy",
+"name": "Nowa Letnica",
+"opening_hours": "Mo-Fr 08:00-19:00, Sa 09:00-14:00"
+}
+},
+{
+"type": "node",
+"id": 9942589230,
+"lat": 54.382873,
+"lon": 18.462431,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10087936832,
+"lat": 54.318117,
+"lon": 18.569143,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 10088009588,
+"lat": 54.307078,
+"lon": 18.613243,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 10208126745,
+"lat": 54.303376,
+"lon": 18.611342,
+"tags": {
+"amenity": "pharmacy",
+"name": "Zielony Południk"
+}
+},
+{
+"type": "node",
+"id": 10281314761,
+"lat": 54.413283,
+"lon": 18.624317,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 10633906341,
+"lat": 54.355717,
+"lon": 18.646521,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"opening_hours": "Mo-Sa 08:00-19:00; Su 09:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 10676265672,
+"lat": 54.383002,
+"lon": 18.46192,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10708978655,
+"lat": 54.346897,
+"lon": 18.602548,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 10713141023,
+"lat": 54.407348,
+"lon": 18.638265,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10740247648,
+"lat": 54.342139,
+"lon": 18.66881,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10754659762,
+"lat": 54.407341,
+"lon": 18.557734,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10756186614,
+"lat": 54.386472,
+"lon": 18.583074,
+"tags": {
+"amenity": "pharmacy",
+"name": "Apteka Osiedlowa"
+}
+},
+{
+"type": "node",
+"id": 10853043072,
+"lat": 54.325273,
+"lon": 18.617657,
+"tags": {
+"amenity": "toilets",
+"charge": "1 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 10866053701,
+"lat": 54.41571,
+"lon": 18.617675,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 10866077524,
+"lat": 54.412462,
+"lon": 18.607538,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 10866077527,
+"lat": 54.414287,
+"lon": 18.605102,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 10866077528,
+"lat": 54.414003,
+"lon": 18.608458,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 10869433735,
+"lat": 54.401705,
+"lon": 18.674357,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10873828138,
+"lat": 54.390909,
+"lon": 18.578452,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "limited"
+}
+},
+{
+"type": "node",
+"id": 10899576003,
+"lat": 54.40314,
+"lon": 18.681823,
+"tags": {
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 10899599710,
+"lat": 54.407393,
+"lon": 18.675975,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 10899599711,
+"lat": 54.40741,
+"lon": 18.675982,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 10899599724,
+"lat": 54.405876,
+"lon": 18.677286,
+"tags": {
+"access": "private",
+"amenity": "toilets",
+"fee": "no",
+"opening_hours": "24/7",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 10899666655,
+"lat": 54.412682,
+"lon": 18.559571,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10906719283,
+"lat": 54.356746,
+"lon": 18.649463,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10909217226,
+"lat": 54.388812,
+"lon": 18.591264,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10942928039,
+"lat": 54.390245,
+"lon": 18.611906,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 10951657969,
+"lat": 54.414588,
+"lon": 18.5333,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 10979158966,
+"lat": 54.422691,
+"lon": 18.59175,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 10979158972,
+"lat": 54.423882,
+"lon": 18.594647,
+"tags": {
+"amenity": "toilets",
+"charge": "5 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 11011331635,
+"lat": 54.420609,
+"lon": 18.451743,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 11027891005,
+"lat": 54.361568,
+"lon": 18.64882,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 11030401278,
+"lat": 54.37733,
+"lon": 18.607846,
+"tags": {
+"amenity": "toilets",
+"opening_hours": "Mo-Fr 09:00-21:00; Su 10:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 11030406872,
+"lat": 54.410722,
+"lon": 18.562608,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 11084370187,
+"lat": 54.355573,
+"lon": 18.644611,
+"tags": {
+"amenity": "toilets",
+"charge": "4.5 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 11108625910,
+"lat": 54.420065,
+"lon": 18.608051,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 11142517601,
+"lat": 54.41874,
+"lon": 18.443086,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 11162286411,
+"lat": 54.36941,
+"lon": 18.730256,
+"tags": {
+"access": "customers",
+"amenity": "toilets",
+"fee": "no",
+"opening_hours": "24/7"
+}
+},
+{
+"type": "node",
+"id": 11224675317,
+"lat": 54.39574,
+"lon": 18.644631,
+"tags": {
+"addr:housenumber": "41",
+"addr:street": "Sucha",
+"amenity": "pharmacy",
+"name": "Multipharm",
+"opening_hours": "Mo-Fr 08:00-21:00, Sa 09:00-18:00, Su 10:00-15:00"
+}
+},
+{
+"type": "node",
+"id": 11348353320,
+"lat": 54.35955,
+"lon": 18.654024,
+"tags": {
+"access": "yes",
+"addr:housenumber": "7",
+"addr:street": "Lisia Grobla",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 11349705418,
+"lat": 54.342554,
+"lon": 18.598853,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 11355599083,
+"lat": 54.359778,
+"lon": 18.653728,
+"tags": {
+"access": "yes",
+"addr:housenumber": "7",
+"addr:street": "Lisia Grobla",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 11385918798,
+"lat": 54.381657,
+"lon": 18.604823,
+"tags": {
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 11494644895,
+"lat": 54.350893,
+"lon": 18.555747,
+"tags": {
+"amenity": "toilets",
+"charge": "2 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 11705904977,
+"lat": 54.32806,
+"lon": 18.569809,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 11748358349,
+"lat": 54.34214,
+"lon": 18.499323,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 11860938777,
+"lat": 54.39607,
+"lon": 18.67942,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 11886889144,
+"lat": 54.349776,
+"lon": 18.656395,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "yes",
+"opening_hours": "09:00-22:00",
+"wheelchair": "designated"
+}
+},
+{
+"type": "node",
+"id": 11904741018,
+"lat": 54.334188,
+"lon": 18.604991,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12049634081,
+"lat": 54.356266,
+"lon": 18.660009,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"opening_hours": "Tu 10:00-17:00; We-Su 10:00-19:00"
+}
+},
+{
+"type": "node",
+"id": 12080548961,
+"lat": 54.40345,
+"lon": 18.68077,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 12101771989,
+"lat": 54.355329,
+"lon": 18.644661,
+"tags": {
+"addr:housenumber": "1",
+"addr:street": "Podwale Grodzkie",
+"amenity": "pharmacy",
+"brand": "Dr. Max",
+"name": "Dr. Max",
+"opening_hours": "07:00-22:00",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 12118678985,
+"lat": 54.360191,
+"lon": 18.662412,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12118678986,
+"lat": 54.361491,
+"lon": 18.659181,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 12118678992,
+"lat": 54.361882,
+"lon": 18.66034,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 12136945142,
+"lat": 54.417774,
+"lon": 18.612804,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12178756549,
+"lat": 54.405776,
+"lon": 18.661213,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 12178756550,
+"lat": 54.406975,
+"lon": 18.660897,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "limited"
+}
+},
+{
+"type": "node",
+"id": 12178756551,
+"lat": 54.406983,
+"lon": 18.660939,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12231840092,
+"lat": 54.401631,
+"lon": 18.58311,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 12260781358,
+"lat": 54.40457,
+"lon": 18.587797,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 12524992721,
+"lat": 54.352038,
+"lon": 18.672706,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 12596649379,
+"lat": 54.366632,
+"lon": 18.548716,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12639086258,
+"lat": 54.408574,
+"lon": 18.559575,
+"tags": {
+"amenity": "toilets",
+"charge": "2 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 12677675911,
+"lat": 54.443881,
+"lon": 18.457253,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12800857339,
+"lat": 54.406513,
+"lon": 18.676621,
+"tags": {
+"amenity": "toilets",
+"fee": "yes",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 12830443675,
+"lat": 54.401524,
+"lon": 18.608413,
+"tags": {
+"amenity": "pharmacy",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 12894983401,
+"lat": 54.366562,
+"lon": 18.767967,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 12896677943,
+"lat": 54.368817,
+"lon": 18.728959,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 12959933309,
+"lat": 54.408069,
+"lon": 18.667332,
+"tags": {
+"access": "permissive",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 12964567153,
+"lat": 54.379106,
+"lon": 18.616078,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13028533942,
+"lat": 54.408715,
+"lon": 18.627445,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"name": "Toi Toi"
+}
+},
+{
+"type": "node",
+"id": 13039414723,
+"lat": 54.364198,
+"lon": 18.573822,
+"tags": {
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "node",
+"id": 13045204109,
+"lat": 54.411251,
+"lon": 18.610924,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13055935847,
+"lat": 54.409445,
+"lon": 18.591144,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"name": "Toilet"
+}
+},
+{
+"type": "node",
+"id": 13055945186,
+"lat": 54.409445,
+"lon": 18.591144,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"name": "Toilet"
+}
+},
+{
+"type": "node",
+"id": 13183566427,
+"lat": 54.343573,
+"lon": 18.826349,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 13241516844,
+"lat": 54.301931,
+"lon": 18.630555,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 13283557792,
+"lat": 54.376947,
+"lon": 18.632541,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13620796582,
+"lat": 54.420537,
+"lon": 18.578819,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 13650152378,
+"lat": 54.41088,
+"lon": 18.619994,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"wheelchair": "no"
+}
+},
+{
+"type": "node",
+"id": 13713990726,
+"lat": 54.340596,
+"lon": 18.600699,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13713990727,
+"lat": 54.341235,
+"lon": 18.599977,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13713990728,
+"lat": 54.341687,
+"lon": 18.598529,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"opening_hours": "Mo-Sa 07:00-15:00; Su,PH off"
+}
+},
+{
+"type": "node",
+"id": 13720556465,
+"lat": 54.321612,
+"lon": 18.627763,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13720615288,
+"lat": 54.320068,
+"lon": 18.607226,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13751224482,
+"lat": 54.345099,
+"lon": 18.597628,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13757098541,
+"lat": 54.410435,
+"lon": 18.570921,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 13757121973,
+"lat": 54.349516,
+"lon": 18.527799,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13787830167,
+"lat": 54.403508,
+"lon": 18.683678,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 13787830171,
+"lat": 54.406207,
+"lon": 18.676595,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13787830172,
+"lat": 54.406221,
+"lon": 18.67655,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13787830173,
+"lat": 54.402867,
+"lon": 18.682563,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13791943565,
+"lat": 54.338791,
+"lon": 18.598557,
+"tags": {
+"access": "private",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13791943574,
+"lat": 54.338324,
+"lon": 18.596602,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13791943577,
+"lat": 54.340767,
+"lon": 18.592279,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13792403278,
+"lat": 54.33829,
+"lon": 18.594768,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13858041445,
+"lat": 54.376139,
+"lon": 18.564346,
+"tags": {
+"amenity": "pharmacy",
+"brand": "Gemini",
+"name": "Gemini"
+}
+},
+{
+"type": "node",
+"id": 13859003660,
+"lat": 54.397243,
+"lon": 18.595922,
+"tags": {
+"amenity": "pharmacy",
+"brand": "Cef@Rm 36,6",
+"name": "Cef@Rm 36,6",
+"opening_hours": "Mo-Fr 08:00-20:00; Sa-Su 10:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 13873501881,
+"lat": 54.422444,
+"lon": 18.593452,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13898568202,
+"lat": 54.421044,
+"lon": 18.569834,
+"tags": {
+"amenity": "toilets",
+"opening_hours": "Mo-Su 08:00-20:00"
+}
+},
+{
+"type": "node",
+"id": 13912312175,
+"lat": 54.348266,
+"lon": 18.668252,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13912312176,
+"lat": 54.348261,
+"lon": 18.668227,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13953845657,
+"lat": 54.397033,
+"lon": 18.61337,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13983200340,
+"lat": 54.393165,
+"lon": 18.640058,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 13988640770,
+"lat": 54.372843,
+"lon": 18.584129,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 14011098425,
+"lat": 54.376561,
+"lon": 18.581649,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "yes",
+"opening_hours": "Mo-Su 09:00-18:00"
+}
+},
+{
+"type": "node",
+"id": 14020305530,
+"lat": 54.344981,
+"lon": 18.910726,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 14029110229,
+"lat": 54.397265,
+"lon": 18.669007,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 14072462201,
+"lat": 54.350207,
+"lon": 18.645994,
+"tags": {
+"amenity": "toilets",
+"opening_hours": "Mo-Su 06:00-22:00"
+}
+},
+{
+"type": "node",
+"id": 14079448478,
+"lat": 54.412654,
+"lon": 18.614792,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 14127020034,
+"lat": 54.382851,
+"lon": 18.601291,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "node",
+"id": 14137775201,
+"lat": 54.350171,
+"lon": 18.645978,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "node",
+"id": 14175342920,
+"lat": 54.409376,
+"lon": 18.616657,
+"tags": {
+"amenity": "toilets",
+"name": "Toi Toi"
+}
+},
+{
+"type": "node",
+"id": 14214176830,
+"lat": 54.333101,
+"lon": 18.936332,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "node",
+"id": 14214176854,
+"lat": 54.334019,
+"lon": 18.935139,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "way",
+"id": 103769891,
+"lat": 54.409387,
+"lon": 18.562051,
+"tags": {
+"addr:housenumber": "16",
+"addr:street": "Opata Jacka Rybińskiego",
+"amenity": "toilets",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 236809172,
+"lat": 54.386746,
+"lon": 18.590767,
+"tags": {
+"amenity": "toilets",
+"fee": "yes"
+}
+},
+{
+"type": "way",
+"id": 256475918,
+"lat": 54.415765,
+"lon": 18.530417,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "way",
+"id": 353178185,
+"lat": 54.353275,
+"lon": 18.550155,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "2 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "way",
+"id": 415815875,
+"lat": 54.413574,
+"lon": 18.532748,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "way",
+"id": 445295887,
+"lat": 54.339939,
+"lon": 18.586559,
+"tags": {
+"access": "yes",
+"amenity": "toilets"
+}
+},
+{
+"type": "way",
+"id": 559507261,
+"lat": 54.349759,
+"lon": 18.650456,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes"
+}
+},
+{
+"type": "way",
+"id": 689494333,
+"lat": 54.411482,
+"lon": 18.629465,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 689494334,
+"lat": 54.409975,
+"lon": 18.634971,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 689494335,
+"lat": 54.410778,
+"lon": 18.632416,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 689494336,
+"lat": 54.422818,
+"lon": 18.603394,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "yes",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 845381803,
+"lat": 54.375861,
+"lon": 18.61667,
+"tags": {
+"amenity": "toilets",
+"charge": "4 PLN",
+"fee": "yes",
+"opening_hours": "09:00-17:00"
+}
+},
+{
+"type": "way",
+"id": 987022013,
+"lat": 54.410327,
+"lon": 18.535001,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "way",
+"id": 1058572774,
+"lat": 54.363922,
+"lon": 18.645054,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "way",
+"id": 1233919331,
+"lat": 54.382398,
+"lon": 18.599555,
+"tags": {
+"addr:housenumber": "141",
+"addr:street": "Aleja Grunwaldzka",
+"amenity": "pharmacy",
+"brand": "Super-Pharm",
+"name": "Super-Pharm"
+}
+},
+{
+"type": "way",
+"id": 1506201546,
+"lat": 54.320322,
+"lon": 18.550968,
+"tags": {
+"amenity": "toilets"
+}
+},
+{
+"type": "way",
+"id": 1506201585,
+"lat": 54.31982,
+"lon": 18.552628,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 1506201590,
+"lat": 54.319248,
+"lon": 18.551634,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 1506201624,
+"lat": 54.318615,
+"lon": 18.551966,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "way",
+"id": 1506201631,
+"lat": 54.318145,
+"lon": 18.552493,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 1506201640,
+"lat": 54.318357,
+"lon": 18.553601,
+"tags": {
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "no"
+}
+},
+{
+"type": "way",
+"id": 1512097538,
+"lat": 54.371803,
+"lon": 18.520551,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "way",
+"id": 1513989398,
+"lat": 54.372576,
+"lon": 18.517783,
+"tags": {
+"amenity": "toilets",
+"fee": "no"
+}
+},
+{
+"type": "way",
+"id": 1513989402,
+"lat": 54.372017,
+"lon": 18.518246,
+"tags": {
+"addr:housenumber": "26",
+"addr:street": "Złota Karczma",
+"amenity": "pharmacy",
+"brand": "Super-Pharm",
+"name": "Super-Pharm",
+"opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00"
+}
+},
+{
+"type": "way",
+"id": 1552090942,
+"lat": 54.34913,
+"lon": 18.644918,
+"tags": {
+"amenity": "toilets",
+"wheelchair": "yes"
+}
+},
+{
+"type": "way",
+"id": 1553036049,
+"lat": 54.38277,
+"lon": 18.601577,
+"tags": {
+"access": "yes",
+"amenity": "toilets",
+"fee": "no",
+"wheelchair": "yes"
+}
+}
+]

@@ -30,8 +30,6 @@ NIGHT_END_HOUR = 6
 FALLBACK_KINDS = ("pharmacy", "shop")
 IN_STOCK = ("ok", "low")
 COORD_DECIMALS = 3           # ~100 m: we never store exact user positions
-CITY_CENTRES = {"krakow": (50.0617, 19.9373)}
-LOG_RADIUS_M = 30_000        # only searches inside the city go to the white-spots map
 
 DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]  # index = datetime.weekday()
 
@@ -57,6 +55,7 @@ def walking_minutes(distance_m: float) -> float:
 #   {"mon": ["08:00", "20:00"], "sat": ["10:00", "14:00"]}  a missing day = closed
 #   ["18:00", "02:00"]  closes after midnight (the early hours belong to the day before)
 #   "24:00" is allowed as a closing time.
+#   {"unknown": true}                                   hours not known: never counted as open
 
 def parse_opening_hours(value: str | dict) -> dict:
     return json.loads(value) if isinstance(value, str) else value
@@ -72,6 +71,8 @@ def is_open(opening_hours: str | dict, now: datetime) -> bool:
     hours = parse_opening_hours(opening_hours)
     if hours.get("always"):
         return True
+    if hours.get("unknown"):
+        return False  # we cannot promise it is open
 
     local = now.astimezone(TZ)
     t = local.hour * 60 + local.minute
@@ -127,7 +128,7 @@ def _result(p: dict, lat: float, lon: float, now: datetime) -> dict:
         "minutes_since_confirmed": p.get("minutes_since_confirmed"),
         "distance_m": round(dist),
         "walking_min": round(walking_minutes(dist), 1),
-        "entry_fee_pln": p.get("entry_fee_pln") or 0,
+        "entry_fee_pln": p.get("entry_fee_pln"),  # None = fee unknown
         "access": p["access"],
         "open_now": is_open(p["opening_hours"], now),
         "open_24_7": is_24_7(p["opening_hours"]),

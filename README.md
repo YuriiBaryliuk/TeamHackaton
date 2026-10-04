@@ -1,6 +1,6 @@
 # Kropka
 
-**A live map of free menstrual hygiene products in Kraków.** Built at HackYeah 2026 for the task "ImpactHer: Technology for Real Change".
+**A live map of free menstrual hygiene products in Kraków, Warszawa, Wrocław and Gdańsk.** Built at HackYeah 2026 for the task "ImpactHer: Technology for Real Change".
 
 Free pad and tampon boxes already exist in cafés, libraries and schools, but nobody knows whether a box is full right now or where new ones are needed. Kropka fixes that in three ways:
 
@@ -26,8 +26,9 @@ Requires Python 3.11 or newer.
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m scripts.seed_points          # 46 real city toilets + 27 demo points
-python -m scripts.seed_demo_events     # 30 days of demo events and Urgent searches
+python -m scripts.seed_points          # Kraków: 46 real city toilets + demo points for all cities
+python -m scripts.seed_osm             # Warszawa, Wrocław, Gdańsk: real toilets + pharmacies (OSM snapshots)
+python -m scripts.seed_demo_events     # 30 days of demo events and Urgent searches, all cities
 uvicorn app.main:app --reload
 ```
 
@@ -46,6 +47,8 @@ Open http://127.0.0.1:8000. Run the tests with `pytest` (72 tests).
 | `/docs` | Interactive API documentation |
 
 All pages are in Polish, English and Ukrainian, work on a phone, support dark mode and install as an app (PWA).
+
+**Cities.** The city menu switches the map and the dashboard; the choice is remembered (`?city=warszawa` also works). Urgent and "add a point" detect the city from the location, so someone in Warsaw gets Warsaw results even if the map shows Kraków. Cities are configured in [app/cities.py](app/cities.py).
 
 ## Architecture
 
@@ -89,8 +92,10 @@ Status is always shown by **shape plus words**, never by colour alone. One berry
 
 | Data | Source | Marked |
 | --- | --- | --- |
-| 46 public toilets (ids `krk-1001`…`krk-1050`) | City open data "ZIW Toalety miejskie" ([MSIP Kraków](https://msip.krakow.pl/dataset/3121)), snapshot in `data/krakow_toilets.geojson` | `is_demo = 0` |
-| 27 partner, school, university, pharmacy and shop points (`krk-0001`…`krk-0026`, `krk-demo`) | Hand-made for the demo. Names and positions are illustrative, not real partners. | `is_demo = 1` |
+| Kraków: 46 public toilets (ids `krk-1001`…`krk-1050`) | City open data "ZIW Toalety miejskie" ([MSIP Kraków](https://msip.krakow.pl/dataset/3121)), snapshot in `data/krakow_toilets.geojson` | `is_demo = 0` |
+| Warszawa, Wrocław, Gdańsk: 853 public toilets and 976 pharmacies (ids like `waw-osm-n123`) | OpenStreetMap via the Overpass API, snapshots in `data/osm_<city>.json` (refresh: `python -m scripts.seed_osm --download`) | `is_demo = 0` |
+| Kraków: 27 partner, school, university, pharmacy and shop points (`krk-0001`…`krk-0026`, `krk-demo`) | Hand-made for the demo. Names and positions are illustrative, not real partners. | `is_demo = 1` |
+| Other cities: 7 boxes each (`waw-0001`…, `wro-0001`…, `gda-0001`…) | Hand-made for the demo, [scripts/demo_cities.py](scripts/demo_cities.py). Illustrative. | `is_demo = 1` |
 | All events and Urgent searches from the seed scripts | Generated, 30 days ending "now", fixed random seed | `is_demo = 1` |
 
 The map and the dashboard show a "demo data" note whenever demo rows exist.
@@ -109,10 +114,11 @@ Full interactive documentation is at `/docs`.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| GET | `/api/points?city=krakow` | All points with live status and freshness |
+| GET | `/api/cities` | Supported cities with map centres |
+| GET | `/api/points?city=krakow` | All points of a city with live status and freshness |
 | GET | `/api/points/{id}` | One point (QR page) |
 | POST | `/api/points/{id}/events` | `{type: took/empty/refilled, source: qr/geo/steward/partner, lat?, lon?}`. Returns the new status. |
-| POST | `/api/urgent` | `{lat, lon}`. Returns the best point, alternatives and a fallback. |
+| POST | `/api/urgent` | `{lat, lon}`. Detects the city, returns the best point, alternatives and a fallback. |
 | POST | `/api/points` | Suggest a new point (inside the city, nothing within 25 m, 3 per device per day) |
 | GET | `/api/points/{id}/stats?days=30` | Usage of one box (partner page) |
 | GET | `/api/city/stats?city=krakow&days=30` | Dashboard aggregates |
@@ -203,15 +209,15 @@ Geolocation and service workers need HTTPS (or `localhost`). Over plain HTTP, Ur
 - **Steward alerts** are in-app only and only while `/steward` is open. There are no real push notifications, by design for the MVP.
 - **Moderation** of suggested points is a command-line script, with no admin UI.
 - **Map:** markers overlap in the Old Town at city zoom, because there is no clustering. The free OpenStreetMap tiles are low-resolution on retina screens and are not meant for heavy production traffic.
-- **Cities:** only Kraków is enabled. Other cities show as "soon".
+- **Other cities:** their toilets and pharmacies come from OpenStreetMap, so coverage depends on what volunteers mapped. About half of the places have no readable opening hours; they show "hours unknown" and are never counted as open. Kraków's pharmacies and shops are still demo points.
 
 ## Project layout
 
 ```
 app/       FastAPI app: routes (main.py), models, status, urgent, stats, anti-abuse, add-point rules
 static/    HTML pages, css/, js/ (ES modules), i18n/ (pl, en, uk), icons/, fonts/, sw.js, manifest
-scripts/   seed_points, seed_demo_events, bootstrap, make_qr, make_icons, moderate
-data/      krakow_toilets.geojson snapshot (the SQLite file is created here, gitignored)
+scripts/   seed_points, seed_osm (+ osm_hours parser), demo_cities, seed_demo_events, bootstrap, make_qr, make_icons, moderate
+data/      krakow_toilets.geojson and osm_<city>.json snapshots (the SQLite file is created here, gitignored)
 tests/     72 pytest tests: status, urgent, stats, API, add point, seeding parser
 docs/      screenshots for the presentation
 ```

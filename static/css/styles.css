@@ -280,7 +280,10 @@ body.map-page {
   z-index: 1001;
 }
 
-.topbar-controls { display: flex; gap: 8px; }
+.topbar-controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* Narrow phones: when the controls do not fit next to the logo, they move to a second row. */
+.topbar { flex-wrap: wrap; row-gap: 8px; }
 
 .pill-select {
   min-height: 48px;

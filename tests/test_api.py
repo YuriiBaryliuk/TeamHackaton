@@ -128,10 +128,35 @@ def test_urgent_far_away_gives_fallback_and_is_logged(client):
 
 
 def test_urgent_outside_city_is_not_logged(client):
-    client.post("/api/urgent", json={"lat": 52.2318, "lon": 21.0060})  # Warsaw
+    r = client.post("/api/urgent", json={"lat": 51.76, "lon": 19.46})  # Łódź: no supported city
+    assert r.json()["city"] == "krakow"
     conn = db.connect()
     assert conn.execute("SELECT COUNT(*) FROM urgent_searches").fetchone()[0] == 0
     conn.close()
+
+
+def test_cities_endpoint(client):
+    ids = [c["id"] for c in client.get("/api/cities").json()]
+    assert ids == ["krakow", "warszawa", "wroclaw", "gdansk"]
+
+
+def test_unknown_city_is_404(client):
+    assert client.get("/api/points?city=atlantis").json()["detail"]["code"] == "city_not_found"
+    assert client.get("/api/city/stats?city=atlantis").status_code == 404
+
+
+def test_urgent_detects_city_from_location(client):
+    conn = db.connect()
+    conn.execute("""INSERT INTO points (id, name, kind, lat, lon, access, opening_hours, has_products, city, created_at)
+                    VALUES ('waw-box', 'Warsaw box', 'partner', 52.2300, 21.0100, 'open', ?, 1, 'warszawa', ?)""",
+                 (ALWAYS, db.to_iso(db.utc_now())))
+    conn.commit()
+    conn.close()
+    post(client, "waw-box", type="refilled")
+    # The map may show Kraków (default city param), but the person is in Warsaw.
+    r = client.post("/api/urgent", json={"lat": 52.2310, "lon": 21.0110}).json()
+    assert r["city"] == "warszawa"
+    assert r["found"] is True and r["best"]["id"] == "waw-box"
 
 
 def test_city_stats(client):

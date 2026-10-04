@@ -13,7 +13,7 @@
   "open.now": "Open now",
   "open.closed": "Closed now",
   "fee.paid": "Entry {fee} zł",
-  "fee.free": "Free",
+  "fee.free": "Free entry",
   "point.loading": "Loading…",
   "point.demo": "Demo point",
   "point.confirmed": "Last confirmed {ago}",
@@ -38,7 +38,6 @@
   "map.aria": "Map of points",
   "map.demo_attrib": "Some data is demo data",
   "city.label": "City",
-  "city.soon": "{city} (soon)",
   "legend.title": "Legend",
   "legend.unknown": "No recent information",
   "legend.faded": "Pale dot: not confirmed for over 24 h",
@@ -70,7 +69,7 @@
   "urgent.no_geo": "Move the map to where you are and search from the map centre.",
   "urgent.use_center": "Search from the map centre",
   "legend.city_link": "Data for the city",
-  "dash.title": "Kropka for Kraków",
+  "dash.title": "Kropka: {city}",
   "dash.subtitle": "Anonymised data from the last {days} days. For the city, schools and NGOs.",
   "dash.period": "Period",
   "dash.days": "{n} days",
@@ -154,5 +153,10 @@
   "partner.tip_fast": "This box runs empty in under 2 days. A bigger stock or more frequent refills would help a lot.",
   "partner.qr_page": "QR code page",
   "n.uses.one": "Used {n} time",
-  "n.uses.other": "Used {n} times"
+  "n.uses.other": "Used {n} times",
+  "urgent.geo_denied": "Location access is blocked. Allow location for this site (the icon next to the address). On a Mac also check: System Settings → Privacy & Security → Location Services → turn it on for your browser.",
+  "urgent.geo_unavailable": "Your device could not determine its location. Turn on Wi-Fi and Location Services (on a Mac: System Settings → Privacy & Security → Location Services → turn it on for your browser).",
+  "urgent.geo_timeout": "Finding your location took too long. Please try again in a moment.",
+  "urgent.geo_insecure": "Location only works on a secure page (https://). Open Kropka at https://kropka-05q6.onrender.com.",
+  "hours.unknown": "Opening hours unknown"
 }

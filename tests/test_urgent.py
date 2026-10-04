@@ -112,6 +112,17 @@ def test_nearest_in_stock_point_wins():
     assert "fossgis_osrm_foot" in r["best"]["routes"]["osm"]
 
 
+def test_nearest_low_box_is_recommended():
+    """A half-empty box still has products: if it is the nearest, Urgent picks it."""
+    points = [
+        point("full", RYNEK[0] + 0.004, RYNEK[1]),
+        point("half", RYNEK[0] + 0.001, RYNEK[1], status="low"),
+    ]
+    r = find_urgent(points, *RYNEK, MON_NOON)
+    assert r["best"]["id"] == "half" and r["best"]["status"] == "low"
+    assert r["alternatives"][0]["id"] == "full"
+
+
 def test_empty_faded_and_closed_points_are_skipped():
     points = [
         point("empty", RYNEK[0] + 0.001, RYNEK[1], status="empty"),

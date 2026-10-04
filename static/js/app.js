@@ -1,14 +1,13 @@
 // Main map page: Leaflet map, dot markers, bottom sheet, the Urgent flow.
 // Points are refreshed every few seconds while the page is visible, so a tap on a
 // QR sticker shows up on the big screen during the demo.
-import { getPoints, postUrgent } from "./api.js";
+import { getPoint, getPoints, postUrgent } from "./api.js";
+import { fillCitySelect, getCity, loadCities, saveCity, savedCity } from "./cities.js";
 import "./pwa.js";
 import { dotSvg } from "./dot.js";
 import { getLang, initI18n, LANGS, setLang, t, timeAgo } from "./i18n.js";
 import { isWatched, setWatched } from "./watch.js";
 
-const CITY = "krakow";
-const KRAKOW_CENTER = [50.0614, 19.9383];
 const START_ZOOM = 13;
 const REFRESH_MS = 8000;               // spec: 5-10 s for the live demo
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
@@ -17,6 +16,8 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 let map;
+let city = "krakow";                   // selected city id (see cities.js)
+let smallDots;                         // canvas layer for the many places without a box
 let points = new Map();                // id -> point from the API
 const markers = new Map();             // id -> Leaflet marker
 let sheetMode = null;                  // {kind: "point", id} | {kind: "urgent", result}
@@ -46,28 +47,25 @@ function confirmedText(p) {
 // Today's opening hours in Warsaw time, e.g. "Dziś 08:00–20:00".
 function hoursToday(hours) {
   if (hours.always) return t("hours.always");
+  if (hours.unknown) return t("hours.unknown");
   const weekday = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "Europe/Warsaw" })
     .format(new Date()).toLowerCase().slice(0, 3);
   const today = DAYS.includes(weekday) ? hours[weekday] : null;
   return today ? t("hours.today", { from: today[0], to: today[1] }) : t("hours.closed_today");
 }
 
-const prefersApple = () => /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-
-// Route links to a place when we do not know the user's position (the map sheet).
+// Route link to a place when we do not know the user's position (the map sheet).
 function routesTo(p) {
   return {
-    apple: `https://maps.apple.com/?daddr=${p.lat},${p.lon}&dirflg=w`,
     google: `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lon}&travelmode=walking`,
-    osm: `https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=%3B${p.lat}%2C${p.lon}`,
   };
 }
 
+// "Route" always opens a walking route in Google Maps (app on phones, website on laptops).
+// Without an origin, Google starts the route from the user's current location.
 function routeButtons(routes) {
-  const main = prefersApple() ? routes.apple : routes.google;
   return `<div class="sheet-actions">
-      <a class="btn" href="${esc(main)}" target="_blank" rel="noopener">${esc(t("sheet.route"))}</a>
-      <a class="btn secondary" href="${esc(routes.osm)}" target="_blank" rel="noopener">OpenStreetMap</a>
+      <a class="btn" href="${esc(routes.google)}" target="_blank" rel="noopener">${esc(t("sheet.route"))}</a>
     </div>`;
 }
 
@@ -87,7 +85,7 @@ function setDemoAttribution() {
 // ---------- markers ----------
 
 function markerIcon(p) {
-  const size = isBox(p) ? 26 : 14;     // boxes are big dots, places without a box small ones
+  const size = 26;
   return L.divIcon({
     className: "kropka-marker",
     html: dotSvg(p.status, { size, faded: p.confidence === "faded" }),
@@ -99,21 +97,36 @@ function markerTitle(p) {
   return `${p.name}: ${statusWords(p)}`;
 }
 
+// Boxes: SVG dot markers (shape = status, keyboard focusable).
+// Toilets/pharmacies without a box: small grey circles drawn on one canvas, so a city
+// with 1000+ places stays fast on a phone.
+function makeMarker(p) {
+  if (isBox(p)) {
+    return L.marker([p.lat, p.lon], { icon: markerIcon(p), title: markerTitle(p), alt: markerTitle(p),
+                                      keyboard: true, zIndexOffset: 1000 });
+  }
+  const grey = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim();
+  return L.circleMarker([p.lat, p.lon], { renderer: smallDots, radius: 5, stroke: false,
+                                          fillColor: grey, fillOpacity: 0.7 })
+    .bindTooltip(() => markerTitle(points.get(p.id) || p));
+}
+
 function updateMarkers() {
   for (const p of points.values()) {
     const key = `${p.status}|${p.confidence}|${isBox(p)}`;
     let m = markers.get(p.id);
+    if (m && m.options.key !== key) {  // status changed: replace the marker
+      m.remove();
+      m = null;
+    }
     if (!m) {
-      m = L.marker([p.lat, p.lon], { icon: markerIcon(p), title: markerTitle(p), alt: markerTitle(p), keyboard: true,
-                                     zIndexOffset: isBox(p) ? 1000 : 0 });
+      m = makeMarker(p);
       m.on("click", () => openPoint(p.id));
       m.addTo(map);
+      m.options.key = key;
       markers.set(p.id, m);
-    } else if (m.options.key !== key) {
-      m.setIcon(markerIcon(p));       // status changed: swap the dot shape
     }
-    m.options.key = key;
-    m.getElement()?.setAttribute("title", markerTitle(p));
+    m.getElement?.()?.setAttribute("title", markerTitle(p));
   }
   for (const [id, m] of markers) {
     if (!points.has(id)) { m.remove(); markers.delete(id); }
@@ -122,7 +135,8 @@ function updateMarkers() {
 
 async function refresh() {
   try {
-    const data = await getPoints(CITY);
+    const data = await getPoints(city);
+    if (data.city !== city) return;      // the city was switched while loading
     points = new Map(data.points.map((p) => [p.id, p]));
     updateMarkers();
     hasDemoData = data.has_demo_data;
@@ -161,8 +175,10 @@ function pointSheetHtml(p) {
   const what = isBox(p) && p.has_products ? t("sheet.products") : t(`kind.${p.kind}`);
   const facts = [
     `<li>${esc(what)}</li>`,
-    `<li>${esc(hoursToday(p.opening_hours))} · ${esc(t(p.open_now ? "open.now" : "open.closed"))}</li>`,
-    `<li>${esc(p.entry_fee_pln > 0 ? t("fee.paid", { fee: p.entry_fee_pln }) : t("fee.free"))}</li>`,
+    `<li>${esc(hoursToday(p.opening_hours))}${p.opening_hours.unknown ? "" : ` · ${esc(t(p.open_now ? "open.now" : "open.closed"))}`}</li>`,
+    // Entry fee only means something for toilets; null = not known, so we say nothing.
+    p.kind !== "city_toilet" || p.entry_fee_pln == null ? ""
+      : `<li>${esc(p.entry_fee_pln > 0 ? t("fee.paid", { fee: p.entry_fee_pln }) : t("fee.free"))}</li>`,
     `<li>${esc(t(`access.${p.access}`))}</li>`,
     p.wheelchair ? `<li>${esc(t("sheet.wheelchair"))}</li>` : "",
   ].join("");
@@ -208,7 +224,7 @@ function placeCard(place, { primary = false } = {}) {
         ${dotSvg(place.status, { size: primary ? 40 : 28 })}
         <div>
           <p class="place-name">${esc(place.name)}</p>
-          <p class="muted">${esc(t("urgent.walk", { min: Math.max(1, Math.round(place.walking_min)) }))}${fee}${closed}</p>
+          <p class="muted">${place.status !== "unknown" ? `${esc(t(`status.${place.status}`))} · ` : ""}${esc(t("urgent.walk", { min: Math.max(1, Math.round(place.walking_min)) }))}${fee}${closed}</p>
           ${place.minutes_since_confirmed != null && place.status !== "unknown"
             ? `<p class="muted small">${esc(t("point.confirmed", { ago: timeAgo(place.minutes_since_confirmed) }))}</p>` : ""}
         </div>
@@ -259,7 +275,8 @@ function visibleMapPadding() {
 
 async function runUrgent(lat, lon) {
   try {
-    const r = await postUrgent(lat, lon);
+    const r = await postUrgent(lat, lon, city);
+    if (r.city !== city) await setCity(r.city, { recenter: false }); // you are in another city
     sheetMode = { kind: "urgent", result: r };
     openSheet(urgentHtml(r));
     drawUrgent(lat, lon, r.found ? r.best : r.fallback || r.best);
@@ -269,21 +286,47 @@ async function runUrgent(lat, lon) {
   }
 }
 
-// The browser's own timeout only starts after the permission prompt is answered,
-// so we add an overall limit: a person who ignores the prompt is not left waiting.
-const GEO_TIMEOUT_MS = 12000;
+// Location in two attempts:
+//  1) precise (GPS on phones), short timeout;
+//  2) if that fails or is slow: network/Wi-Fi location, which is what laptops have.
+// Each attempt also has our own time limit, because the browser's timeout only starts
+// after the permission prompt is answered.
+const GEO_ATTEMPTS = [
+  { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 },
+  { enableHighAccuracy: false, timeout: 15000, maximumAge: 10 * 60000 },
+];
+const GEO_EXTRA_WAIT_MS = 6000;
 
-function getPosition() {
+function locateOnce(options) {
   return new Promise((resolve, reject) => {
-    if (!navigator.geolocation) return reject(new Error("unsupported"));
-    const timer = setTimeout(() => reject(new Error("timeout")), GEO_TIMEOUT_MS);
+    const timer = setTimeout(() => reject({ code: 3 }), options.timeout + GEO_EXTRA_WAIT_MS);
     navigator.geolocation.getCurrentPosition(
       (pos) => { clearTimeout(timer); resolve(pos); },
       (err) => { clearTimeout(timer); reject(err); },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
+      options,
     );
   });
 }
+
+// Resolves with a position, or rejects with {code}: 1 denied, 2 unavailable, 3 timeout,
+// "insecure" (page not on HTTPS/localhost), "unsupported".
+async function getPosition() {
+  if (!window.isSecureContext) throw { code: "insecure" };
+  if (!navigator.geolocation) throw { code: "unsupported" };
+  let lastError = { code: 2 };
+  for (const options of GEO_ATTEMPTS) {
+    try {
+      return await locateOnce(options);
+    } catch (err) {
+      lastError = err;
+      if (err.code === 1) break; // permission denied: asking again will not help
+    }
+  }
+  throw lastError;
+}
+
+const GEO_REASON = { 1: "urgent.geo_denied", 2: "urgent.geo_unavailable", 3: "urgent.geo_timeout",
+                     insecure: "urgent.geo_insecure", unsupported: "urgent.geo_unavailable" };
 
 async function onUrgent() {
   const btn = $("urgent-btn");
@@ -292,12 +335,13 @@ async function onUrgent() {
   try {
     const pos = await getPosition();
     await runUrgent(pos.coords.latitude, pos.coords.longitude);
-  } catch {
-    // No location (denied, no GPS, plain HTTP): offer the map centre instead.
+  } catch (err) {
+    // No location: say exactly why, and offer the map centre instead.
     sheetMode = { kind: "nogeo" };
     openSheet(`
       <h2 id="sheet-title" tabindex="-1">${esc(t("urgent.no_geo_title"))}</h2>
-      <p>${esc(t("urgent.no_geo"))}</p>
+      <p>${esc(t(GEO_REASON[err?.code] || "urgent.geo_unavailable"))}</p>
+      <p class="muted">${esc(t("urgent.no_geo"))}</p>
       <div class="sheet-actions"><button class="btn" id="use-center" type="button">${esc(t("urgent.use_center"))}</button></div>`);
     $("use-center").addEventListener("click", () => {
       const c = map.getCenter();
@@ -322,9 +366,6 @@ function setupHeader() {
 
   document.addEventListener("langchange", () => {
     langSelect.value = getLang();
-    document.querySelectorAll("#city-select option[data-soon]").forEach((o) => {
-      o.textContent = t("city.soon", { city: o.dataset.soon });
-    });
     document.querySelectorAll("#legend [data-icon]").forEach((el) => {
       el.innerHTML = dotSvg(el.dataset.icon, { size: el.dataset.small ? 14 : 22, faded: !!el.dataset.faded });
     });
@@ -341,11 +382,34 @@ function setupHeader() {
 
 // ---------- start ----------
 
+// Switch the map to another city: clear its dots, (optionally) move the map, load the new points.
+async function setCity(id, { recenter = true } = {}) {
+  city = id;
+  saveCity(id);
+  $("city-select").value = id;
+  for (const m of markers.values()) m.remove();
+  markers.clear();
+  points = new Map();
+  if (recenter) {
+    const c = getCity(id);
+    map.setView([c.lat, c.lon], START_ZOOM);
+  }
+  await refresh();
+}
+
 async function main() {
   setupHeader();
-  await initI18n();
+  await Promise.all([initI18n(), loadCities()]);
+  city = savedCity();
+  fillCitySelect($("city-select"), city);
+  $("city-select").addEventListener("change", (e) => {
+    if (!$("sheet").hidden) closeSheet();
+    setCity(e.target.value);
+  });
 
-  map = L.map("map", { zoomControl: false, attributionControl: true }).setView(KRAKOW_CENTER, START_ZOOM);
+  const start = getCity(city);
+  map = L.map("map", { zoomControl: false, attributionControl: true }).setView([start.lat, start.lon], START_ZOOM);
+  smallDots = L.canvas({ padding: 0.5 });
   L.control.zoom({ position: "topright" }).addTo(map); // top-left is the legend
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -365,15 +429,18 @@ async function main() {
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("sheet").hidden) closeSheet(); });
 
-  await refresh();
-
-  // /?p=krk-0001 opens that point (used by the "Open the map" link on the QR page).
+  // /?p=krk-0001 opens that point (used by the "Open the map" link on the QR page),
+  // switching to its city if needed.
   const wanted = new URLSearchParams(location.search).get("p");
-  if (wanted && points.has(wanted)) {
-    const p = points.get(wanted);
-    map.setView([p.lat, p.lon], 16);
-    openPoint(wanted);
+  if (wanted) {
+    try {
+      const p = await getPoint(wanted);
+      if (p.city !== city) await setCity(p.city, { recenter: false });
+      map.setView([p.lat, p.lon], 16);
+    } catch { /* unknown id: just show the map */ }
   }
+  await refresh();
+  if (wanted && points.has(wanted)) openPoint(wanted);
 
   setInterval(() => { if (document.visibilityState === "visible") refresh(); }, REFRESH_MS);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") refresh(); });
